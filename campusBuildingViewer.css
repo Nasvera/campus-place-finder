@@ -1,0 +1,966 @@
+﻿/* This file contains the style settings for "Campus Building Viewer" template */
+/*
+ | Copyright 2012 Esri
+ |
+ | Licensed under the Apache License, Version 2.0 (the "License");
+ | you may not use this file except in compliance with the License.
+ | You may obtain a copy of the License at
+ |
+ |    http://www.apache.org/licenses/LICENSE-2.0
+ |
+ | Unless required by applicable law or agreed to in writing, software
+ | distributed under the License is distributed on an "AS IS" BASIS,
+ | WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ | See the License for the specific language governing permissions and
+ | limitations under the License.
+ */
+/* Use this file to perform the following: */
+
+/* 1. Set the body styles                       - { Style(s) to look for: html, body } */
+/* 2. Set the header styles                     - { Style(s) to look for: headerBackground,headerIcon,header,headerContent,disabledText,text,textBox,imgApp,imgLocateAddress,lblAppName,
+                                                                          divAddressContainer,divAddress,tdAddress}*/
+/* 3. Set the loading styles                    - { Style(s) to look for: divLoadingIndicator}*/
+/* 4. Set the styles for dijit buttons          - { Style(s) to look for: claro .dijitButton .dijitButtonNode,claro .dijitButtonHover .dijitButtonNode,claro .dijitButtonActive .dijitButtonNode,
+                                                                         claro .dijitToggleButton .dijitButtonNode,claro .dijitToggleButtonHover .dijitButtonNode,
+                                                                         claro .dijitToggleButtonChecked .dijitButtonNode,claro .dijitDialogPaneContent,claro .dijitTooltipContainer,claro .dijitTooltipConnector}*/
+/* 5. Set the styles for basemap container      - { Style(s) to look for: divBaseMapTitleContainer,basemapThumbnail,baseMapContainerNode,basemapLabel,divBaseMapContainer,selectedBaseMap,
+                                                                         divExpress,divAccordion  }*/
+/* 6. Set the styles for alert doialogs         - { Style(s) to look for: dijitDialogTitleBar,.dijitDialogCloseIcon,.divOk,dialogAlertMessage_underlay,dialogLoadMessage_underlay}*/
+/* 7. Set the styles for info window sprite     - { Style(s) to look for: infowindow .sprite,infowindow .titlebar,infowindow .content}*/
+/* 8. Set the styles for tab container          - { Style(s) to look for: divSubmitRequestContainer,divServiceRequestDetails,claro .dijitTabContainerBottom-dijitContentPane,claro .dijitTabChecked,claro .dijitTabChecked .dijitTabContent,
+                                                                         claro .dijitTabContainerBottom-tabs,claro .dijitTabContent,claro .dijitTabPane,
+                                                                         claro .dijitTabContainerBottom-dijitContentpane,claro .dijitTabPaneWrapper,claro .dijitTabContainerBottom-tabs .dijitTabChecked}*/
+/* 9.Set style for info window content          - { Style(s) to look for: tbl,tblTransparent,tblInfoWindow,tdDisplayField} */
+/* 10.Set the styles for scrollbar              - { Style(s) to look for: scrollbar_container,scrollbar_content,scrollbar_track,scrollbar_handle,scrollbar_footer,
+                                                                         add_scrollbar_container,add_scrollbar_content,add_scrollbar_handle,add_scrollbar_track }*/
+/* 11.Styles for combo boxes                    - { Style(s) to look for: claro .dijitTextBox,claro .dijitTextBoxFocused .dijitInputContainer,claro .dijitReset .dijitInputInner,claro .dijitComboBoxMenu .dijitMenuItemSelected,
+                                                                         claro .dijitComboBoxMenuActive .dijitMenuItemSelected,claro .dijitMenu,claro .dijitComboBoxMenu .dijitMenuItem,rounded,span.rounded:hover,
+                                                                         bottomborder}*/
+/* 12.Style for RatingStar                      - { Style(s) to look for: ratingStar,ratingStarChecked,spanRating } */
+/* 13.Style for esri                            - { Style(s) to look for: esriLogo,esriOverviewMap.ovwTR,esriOverviewMap.ovwTR .ovwContainer } */
+/* 14.Styles for Text Validator                 - { Style(s) to look for: claro .dijitInputContainer,claro .dijitTextBoxError .dijitValidationContainer,claro .dijitTooltip }*/
+/* 15.Style for CreateFloorSwitcher             - { Style(s) to look for: contentBackground} */
+/* 16.Style for PopulatePlacesInGroup           - { Style(s) to look for: tdSubAddress:hover,tdSubAddress} */
+/* 17.Style for Spinner                         - { Style(s) to look for: spinner,txtSpinner,btnSpinner} */
+/* 18.Style for InfoPop field                   - { Style(s) to look for: mailAnchor,infoContainer} */
+/* 19.Style for Text                            - { Style(s) to look for: txtArea,txtAreaMouseOver,txtBox,textBorder,wordBreak,wordBreakComments,dateWordBreak} */
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/* Styles for body*/
+
+body, html
+{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Verdana;
+    font-size: 11px !important;
+    overflow: hidden;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*Styles for header*/
+
+.headerBackground
+{
+    background: rgba(0,0,0,0.9);
+    -pie-background: rgba(0,0,0,0.9);
+    width: 100%;
+    height: 55px;
+    position: absolute;
+    top: 0px;
+    z-index: 100;
+    behavior: url("PIE.htc");
+}
+
+.header
+{
+    background-color: transparent;
+    color: White;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: left top;
+    height: 55px;
+    top: 0px;
+    left: 100px;
+    position: absolute;
+    z-index: 100;
+}
+
+.headerContent
+{
+    color: White;
+    background-color: transparent;
+    width: 100%;
+    position: absolute;
+    z-index: 100;
+    top: 0px;
+    height: 55px;
+}
+
+.headerIcon
+{
+    background-color: transparent;
+    width: 75px;
+    position: absolute;
+    z-index: 100;
+    top: 0px;
+    left: 5px;
+}
+
+.disabledText
+{
+    color: #8A8A8A;
+    font-size: 11px;
+    font-family: Verdana;
+    cursor: pointer !important;
+}
+
+.text
+{
+    color: White;
+    font-size: 11px;
+    font-family: Verdana;
+    cursor: default !important;
+}
+
+.textBox
+{
+    background-color: #242422 !important;
+    border: none;
+    width: 222px;
+    color: #fff;
+    height: 30px;
+    padding: 0px !important;
+    line-height: 30px;
+    font-size: 13px;
+    margin-left: 1px !important;
+    font-family: Verdana !important;
+}
+
+.imgApp
+{
+    width: 64px;
+    left: 0px;
+    top: 0px;
+    border: none;
+    position: absolute;
+}
+
+.lblAppName
+{
+    font-size: 24px;
+    font-weight: normal;
+}
+
+.imgLocateAddress
+{
+    width: 20px;
+    height: 20px;
+    right: 0px;
+    top: 2px;
+    position: relative;
+    cursor: pointer;
+}
+
+.divAddressContainer
+{
+    position: absolute;
+    z-index: 100;
+    background-color: #000;
+    border: 1px solid #fff;
+    width: 250px;
+    top: 43.5px;
+    right: 243px;
+}
+
+.divAddress
+{
+    position: relative;
+    border: 1px solid #7D7D7D;
+    width: 250px;
+    background-color: Black;
+}
+
+.tdAddress
+{
+    color: White;
+    border-bottom: 1px solid #fff;
+    width: 250px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/* Styles for loading */
+
+.divLoadingIndicator
+{
+    height: 100%;
+    width: 100%;
+    display: none;
+    font-size: 11px !important;
+    font-family: Verdana;
+    background-color: Black;
+    color: White;
+    z-index: 100;
+    position: absolute;
+    bottom: 0px;
+    filter: alpha(opacity = 65);
+    -moz-opacity: 0.65;
+    -khtml-opacity: 0.65;
+    opacity: 0.65;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/* Styles for dijit buttons*/
+
+.claro .dijitButton .dijitButtonNode
+{
+    background-color: Black !important;
+    color: White;
+}
+
+.claro .dijitButtonHover .dijitButtonNode
+{
+    background-color: #003d7d !important;
+    color: White !important;
+}
+
+.claro .dijitButtonActive .dijitButtonNode
+{
+    background-color: #ff9f0d !important;
+    color: Black !important;
+}
+
+.claro .dijitToggleButton .dijitButtonNode
+{
+    background-color: transparent !important;
+    background-image: none !important;
+    border: none !important;
+    padding: 5px !important;
+}
+
+.claro .dijitToggleButtonHover .dijitButtonNode
+{
+    background-color: #A9A9A9 !important;
+    background-image: url("images/titlebar.png") !important;
+}
+
+.claro .dijitToggleButtonChecked .dijitButtonNode
+{
+    background-color: #3F3F3F !important;
+    background-image: url("images/button.png") !important;
+}
+
+.claro .dijitDialogPaneContent
+{
+    background-color: Black !important;
+    color: White;
+}
+
+.claro .dijitTooltipContainer
+{
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border: 2px solid #fff !important;
+    font-size: 12px !important;
+    font-family: Verdana !important;
+    z-index: 1000;
+}
+
+.claro .dijitTooltipConnector
+{
+    width: 0px !important;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*Styles for basemap container*/
+
+.divBaseMapTitleContainer
+{
+    width: 250px;
+    height: auto;
+    position: absolute;
+    z-index: 10000;
+    top: 45px;
+    right: 20px;
+}
+
+.basemapThumbnail
+{
+    -moz-box-shadow: 0 0 7px #000000;
+    border: 1px solid #fff;
+    height: 67px;
+    margin: 1px;
+    width: 102px;
+    cursor: pointer;
+}
+
+.baseMapContainerNode
+{
+    float: left;
+    margin: 10px 10px 10px 10px;
+    width: 100px;
+}
+
+.basemapLabel
+{
+    background-color: transparent;
+    color: #F5F5DC;
+    text-align: center;
+    width: 100%;
+    overflow: hidden;
+    display: block;
+    font-size: 11px;
+}
+
+.divBaseMapContainer
+{
+    background-color: #000;
+    overflow: hidden !important;
+    border: 1px solid #fff !important;
+    width: 226px;
+}
+
+.selectedBaseMap
+{
+    -webkit-box-shadow: 0 0 15px #FFE771 !important;
+    -moz-box-shadow: 0 0 15px #FFE771 !important;
+    box-shadow: 0 0 15px #FFE771 !important;
+    filter: progid:DXImageTransform.Microsoft.Glow(color='#8EAE21', Strength='6');
+}
+
+.divExpress
+{
+    position: absolute;
+    right: 50px;
+    top: 80px;
+    z-index: 100;
+    width: 150px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    font-size: 11px !important;
+    font-family: Verdana !important;
+    background: rgba(0,0,0,0.9);
+    -pie-background: rgba(0,0,0,0.9);
+    behavior: url("PIE.htc");
+}
+
+.divAccordion
+{
+    position: absolute;
+    right: 50px;
+    z-index: 100;
+    width: 150px;
+    color: #fff;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 11px !important;
+    font-family: Verdana !important;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    background: rgba(0,0,0,0.9);
+    -pie-background: rgba(0,0,0,0.9);
+    behavior: url("PIE.htc");
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*Styles for alert dialogs */
+
+.dijitDialogTitleBar
+{
+    background: url(images/titlebar.png) !important;
+    color: White;
+    height: 20px;
+    font-size: 11px;
+    font-weight: bold;
+    background-color: Black !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-top: none !important;
+    border-bottom: none !important;
+}
+
+.dijitDialogCloseIcon
+{
+    background: url(images/dialogClose.png) no-repeat !important;
+    right: 8px !important;
+    width: 12px !important;
+    height: 12px !important;
+    top: 10px !important;
+}
+
+.divOk
+{
+    border-width: 1px;
+    color: White;
+    background-color: Black;
+    width: 50px;
+    height: 15px;
+    border-style: solid;
+    border-color: white;
+    font-size: 11px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.dialogAlertMessage_underlay
+{
+    background-color: #000;
+    filter: alpha(opacity=20);
+    -moz-opacity: 0.20;
+    -khtml-opacity: 0.20;
+    opacity: 0.20;
+}
+
+.dialogLoadMessage_underlay
+{
+    background-color: #000;
+    filter: alpha(opacity=20);
+    -moz-opacity: 0.20;
+    -khtml-opacity: 0.20;
+    opacity: 0.20;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/* Styles for Infowindow sprite*/
+
+.infowindow .sprite
+{
+    background-image: url("images/infowindow.png") !important;
+    _background-image: none !important;
+    color: White;
+    _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true', sizingMethod='crop', src='images/infowindow.png') !important;
+}
+
+.infowindow .titlebar
+{
+    color: White;
+    font-size: 11px !important;
+    font-weight: bolder;
+    font-family: verdana;
+}
+
+.infowindow .content
+{
+    color: White;
+    font-family: Verdana;
+    font-size: 11px !important;
+    height: 280px !important;
+}
+
+.claro .dijitDialogTitle
+{
+    font-size: 11px !important;
+    font-weight: bolder !important;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*Styles for tabContainer */
+
+.divSubmitRequestContainer
+{
+    height: 225px;
+    width: 100%;
+}
+
+.divServiceRequestDetails
+{
+    overflow: hidden;
+    height: 225px;
+}
+
+.claro .dijitTabContainerBottom-dijitContentPane
+{
+    background-color: transparent !important;
+    overflow: hidden;
+    padding: 0px !important;
+}
+
+.claro .dijitTabChecked
+{
+    color: Black !important;
+    padding: none !important;
+}
+
+.claro .dijitTabChecked .dijitTabContent
+{
+    background-color: Orange !important;
+    color: Black !important;
+    background-position: 50% bottom !important;
+}
+
+.claro .dijitTabContainerBottom-tabs
+{
+    border-top: none !important;
+}
+
+.claro .dijitTabContent
+{
+    background-image: url(images/tabBottom.png) !important;
+    background-color: #1C1C1C !important;
+    width: 136px !important;
+    border-top: #b5bcc7 1px solid !important;
+    font-size: 11px;
+    font-weight: bold;
+    font-family: Verdana;
+    color: White;
+    padding-bottom: 7px !important;
+    padding-top: 5px !important;
+}
+
+.claro .dijitTabPane
+{
+    border-bottom: 1px solid #fff !important;
+}
+
+.claro .dijitTabContainerBottom-dijitContentpane
+{
+    background-color: transparent !important;
+    width: 100% !important;
+}
+
+.claro .dijitTabPaneWrapper
+{
+    background-color: transparent !important;
+}
+
+.claro .dijitTabContainerBottom-tabs .dijitTabChecked
+{
+    padding-bottom: 3px !important;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*Style for Info Window Content*/
+
+.tbl
+{
+    width: 250px;
+    border: 2px solid #4E4848;
+}
+.tbl7
+{
+    border-width: 2px;
+    border-color: #4E4848;
+    width: 250px;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+}
+
+.tblTransparent
+{
+    width: 95%;
+    padding-left: 5px;
+}
+
+.tblInfoWindow
+{
+    width: 100%;
+}
+
+.tdDisplayField
+{
+    text-indent: 3px;
+    height: 20px;
+    color: White !important;
+    width: 50%;
+    font-size: 11px !important;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*Styles for scrollbar*/
+
+.scrollbar_container
+{
+    width: 295px;
+    max-height: 230px;
+    position: relative;
+    overflow: hidden;
+}
+
+.scrollbar_content
+{
+    overflow: hidden;
+    width: 280px;
+    max-height: 230px;
+    border: none;
+}
+
+.scrollbar_track
+{
+    position: absolute;
+    background-color: transparent;
+    display: none;
+    right: 1px !important;
+}
+
+.scrollbar_handle
+{
+    position: relative;
+    width: 10px;
+    background-color: Silver;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    opacity: 0.9;
+    -moz-opacity: 0.9;
+    cursor: default;
+}
+
+.scrollbar_footer
+{
+    position: absolute;
+    top: 210px;
+    right: 2px;
+}
+
+.add_scrollbar_container
+{
+    width: 340px;
+    max-height: 230px;
+}
+
+.add_scrollbar_content
+{
+    overflow: hidden;
+    width: 238px;
+    max-height: 230px;
+    border: none;
+}
+
+.add_scrollbar_handle
+{
+    position: relative;
+    width: 10px;
+    background-color: Silver;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    opacity: 0.9;
+    -moz-opacity: 0.9;
+    cursor: default;
+}
+
+.add_scrollbar_track
+{
+    position: absolute;
+    background-color: transparent;
+    display: none;
+    right: 2px;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*Styles for combo boxes */
+
+.claro .dijitTextBox
+{
+    background-color: #000 !important;
+    color: #fff !important;
+    font-family: Tahoma, Arial;
+    font-size: 11px;
+}
+
+.claro .dijitTextBoxFocused .dijitInputContainer
+{
+    background-color: #000 !important;
+    color: #fff !important;
+}
+
+.claro .dijitReset .dijitInputInner
+{
+    color: white !important;
+}
+
+.claro .dijitComboBoxMenu .dijitMenuItemSelected
+{
+    background-position: 0px -177px !important;
+    background-color: #2F2F4F !important;
+    color: White !important;
+}
+
+.claro .dijitComboBoxMenuActive .dijitMenuItemSelected
+{
+    background-position: 0px -177px;
+    background-color: red !important;
+    color: #fff !important;
+}
+
+.claro .dijitMenu
+{
+    background-color: Black !important;
+    color: #fff !important;
+}
+
+.claro .dijitComboBoxMenu .dijitMenuItem
+{
+    border: 0px solid #000 !important;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+}
+
+.rounded
+{
+    background: transparent url(images/buttonImage.png ) no-repeat scroll;
+    clear: left;
+    font-family: Verdana;
+    font-size: 10px;
+    display: block;
+    height: 25px;
+    line-height: 25px;
+    width: 84px;
+    text-align: center;
+    color: White;
+    cursor: pointer;
+}
+
+span.rounded:hover
+{
+    background-position: 100% -25px;
+}
+
+.bottomborder
+{
+    border-bottom: 1px dotted white;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*Style for Ratingstar */
+
+.ratingStar
+{
+    display: inline-block;
+    background-image: url(images/rating_empty.gif);
+    background-position: left center;
+    height: 15px;
+    width: 15px;
+    float: left; /* cursor: pointer;*/
+}
+
+.ratingStarChecked
+{
+    background-image: url(images/rating_full.gif);
+}
+
+.spanRating
+{
+    color: White;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*Set Style for Esri*/
+
+.esriLogo
+{
+    position: absolute;
+    z-index: 100;
+    bottom: 10px;
+    left: 10px;
+}
+
+.esriOverviewMap.ovwTR
+{
+    top: 60px !important;
+}
+
+.esriOverviewMap.ovwTR .ovwContainer
+{
+    border-top: 1px solid #000000;
+    border-right: 1px solid #000000;
+    padding: 0px !important;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/* Set the styles for Text Validator    */
+
+.claro .dijitInputContainer
+{
+    background-color: Black !important;
+    color: White !important;
+}
+
+.claro .dijitTextBoxError .dijitValidationContainer
+{
+    width: 0px !important;
+}
+
+.claro .dijitTooltip
+{
+    z-index: 0 !important;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*CreateFloorSwitcher Style*/
+
+.contentBackground
+{
+    background-color: Black;
+    width: 116px;
+    border: White 1px solid;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*PopulatePlacesInGroup Style */
+
+.tdSubAddress
+{
+    color: White;
+    padding-left: 10px;
+    width: 250px;
+    cursor: pointer;
+}
+
+.tdSubAddress:hover
+{
+    background-color: Black;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*Style for Spinner*/
+
+.spinner
+{
+    position: relative !important;
+    float: right;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: inline-block;
+    line-height: 0;
+    vertical-align: middle;
+}
+
+.txtSpinner
+{
+    position: relative;
+    background-color: transparent;
+    color: #ffffff;
+    width: 90px;
+    height: 25px;
+    border: none;
+    vertical-align: middle !important;
+    line-height: 25px;
+}
+
+.btnSpinner
+{
+    font-size: 8px;
+    height: 14px;
+    width: 25px;
+    border-width: .5px;
+    text-align: center;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/* Style for Info Popfield */
+
+.mailAnchor
+{
+    color: #ffffff;
+}
+
+.infoContainer
+{
+    padding-left: 3px !important;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*Style for Text */
+
+.txtArea
+{
+    background-color: black;
+    border: 1px solid #b5bcc7;
+    width: 195px;
+    padding: 0px !important;
+    color: white;
+    font-family: Verdana;
+    font-size: 11px;
+    height: 45px;
+    resize: none;
+}
+
+.txtAreaMouseOver
+{
+    background-color: black;
+    border: 1px solid #769dc0;
+    width: 195px;
+    color: white;
+    font-family: Verdana;
+    font-size: 11px;
+    height: 45px;
+    resize: none;
+}
+
+.txtBox
+{
+    font-size: 11px;
+    width: 195px;
+    height: 18px;
+    color: White;
+    background-color: Black;
+    border: 1px solid #b5bcc7;
+    padding: 0px !important;
+}
+
+.textBorder
+{
+    background-color: black;
+    border: 1px solid #fff;
+    color: #fff;
+    font-size: 13px !important;
+    font-family: Verdana !important;
+}
+
+.wordBreak
+{
+    word-break: break-all;
+    word-wrap: break-word;
+    display: inline-block;
+}
+
+.wordBreakComments
+{
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+.dateWordBreak
+{
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+/*.dijitTabInnerDiv
+{
+    width:150px !important;
+}
+*/
+
+
+
