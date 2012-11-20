@@ -5,7 +5,7 @@ Campus Place Finder is a configuration of ArcGIS Server and a JavaScript applica
 
 [Try the Campus Place Finder application](http://localgovtemplates2.esri.com/campusplacefinder/default.htm)
 
-![Image of Campus Place Finder application](https://raw.github.com/Esri/park-and-recreation-finder/master/campus-place-finder.png "Campus Place Finder application")
+![Image of Campus Place Finder application](https://raw.github.com/Esri/campus-place-finder/master/campus-place-finder.png "Campus Place Finder application")
 
 ## Features
 
