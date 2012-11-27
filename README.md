@@ -1,5 +1,4 @@
 # campus-place-finder
-**from [Esri's ArcGIS for Local Government team](http://resources.arcgis.com/en/communities/local-government/)**
 
 Campus Place Finder is a configuration of ArcGIS Server and a JavaScript application that allows employees and visitors to locate people and places on a campus or in a single building. This application is typically used by employees or university students to locate an office or conference room in a building, but can also be used by visitors to locate an individual employee they are visiting.
 
@@ -38,6 +37,8 @@ on the ArcGIS Resource Center can guide you in the setup and configuration of th
 * Microsoft ASP.NET Framework 4.0 available from the [Microsoft website](http://www.microsoft.com/en-us/download/details.aspx?id=17851)
 
 ## Resources
+
+Learn more about Esri's [ArcGIS for Local Government maps and apps](http://resources.arcgis.com/en/communities/local-government/).
 
 Additional [information and sample data](http://www.arcgis.com/home/item.html?id=24285286f70642ab870d446b7dd7006f)
 are available for the application.
