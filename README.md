@@ -23,6 +23,9 @@ Esri's sample services can be used with this repository to extend the applicatio
 [Detailed help](http://resources.arcgis.com/en/help/localgovernment/10.1/index.html#/What_is_Campus_Place_Finder/028s0000000t000000/)
 on the ArcGIS Resource Center can guide you in the setup and configuration of the app with your services.
 
+### General Help
+[New to Github? Get started here.](http://htmlpreview.github.com/?https://github.com/Esri/esri.github.com/blob/master/help/esri-getting-to-know-github.html)
+
 ## Requirements
 
 ### Esri Sample Services
