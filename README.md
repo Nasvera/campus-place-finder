@@ -43,6 +43,8 @@ on the ArcGIS Resource Center can guide you in the setup and configuration of th
 
 Learn more about Esri's [ArcGIS for Local Government maps and apps](http://resources.arcgis.com/en/communities/local-government/).
 
+Show me a list of other [Local Government GitHub repositories](https://github.com/search?q=username:esri+local+government).
+
 Additional [information and sample data](http://www.arcgis.com/home/item.html?id=24285286f70642ab870d446b7dd7006f)
 are available for the application.
 
