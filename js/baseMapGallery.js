@@ -1,5 +1,5 @@
 ﻿/** @license
- | Version 10.1.1
+ | Version 10.2
  | Copyright 2012 Esri
  |
  | Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,70 +14,39 @@
  | See the License for the specific language governing permissions and
  | limitations under the License.
  */
+//Create basemap components
 function CreateBaseMapComponent() {
-    if (baseMapLayerCollection.length != 0) {
-        for (var i = 0; i < baseMapLayerCollection.length; i++) {
-            CreateBaseMapLayer(baseMapLayerCollection[i].MapURL, baseMapLayerCollection[i].Key, (i == 0) ? true : false);
-        }
-
-        if (baseMapLayerCollection.length == 1 || !isBasemapSwitcherEnabled) {
-            dojo.byId('tdBaseMap').style.display = 'none';
-            HideLoadingMessage();
-            return;
-        }
-
-        var mapList = dojo.byId('divContainer');
-        var mapTable = document.createElement('table');
-        var mapTbody = document.createElement('tbody');
-        mapTable.cellSpacing = 0;
-        mapList.appendChild(mapTable);
-        mapTable.appendChild(mapTbody);
-        for (var i = 0; i < Math.ceil(baseMapLayerCollection.length / 2); i++) {
-            var previewDataRow = document.createElement("tr");
-            mapTbody.appendChild(previewDataRow);
-            if (baseMapLayerCollection[(i * 2) + 0]) {
-                var layerInfo = baseMapLayerCollection[(i * 2) + 0];
-                previewDataRow.appendChild(CreateBaseMapElement(layerInfo));
-            }
-            if (baseMapLayerCollection[(i * 2) + 1]) {
-                var layerInfo = baseMapLayerCollection[(i * 2) + 1];
-                previewDataRow.appendChild(CreateBaseMapElement(layerInfo));
-            }
-        }
-
-        if (!(dojo.isIE < 9)) {
-            dojo.addClass(dojo.byId("imgThumbNail" + baseMapLayerCollection[0].Key), "selectedBaseMap");
-            if (dojo.isIE) {
-                dojo.addClass(dojo.byId("imgThumbNail" + baseMapLayerCollection[0].Key), "selectedBaseMap");
-                dojo.byId("imgThumbNail" + baseMapLayerCollection[0].Key).style.marginTop = "-5px";
-                dojo.byId("imgThumbNail" + baseMapLayerCollection[0].Key).style.marginLeft = "-5px";
-                dojo.byId("spanBaseMapText" + baseMapLayerCollection[0].Key).style.marginTop = "5px";
-            }
-        }
-        //dojo.addClass(dojo.byId("imgThumbNail" + baseMapLayerCollection[0].Key), "selectedBaseMap");
+    for (var i = 0; i < baseMapLayers.length; i++) {
+        CreateBaseMapLayer(baseMapLayers[i].MapURL, baseMapLayers[i].Key, (i == 0) ? true : false);
     }
-    else {
-        ShowDialog('Error', 'No basemap layer found. Atleast one basemap layer is required. Please contact your administrator.');
-        HideLoadingMessage();
+    var layerList = dojo.byId('layerList');
+    for (var i = 0; i < Math.ceil(baseMapLayers.length / 2); i++) {
+        var previewDataRow = document.createElement("tr");
+
+        if (baseMapLayers[(i * 2)]) {
+            var layerInfo = baseMapLayers[(i * 2)];
+            layerList.appendChild(CreateBaseMapElement(layerInfo));
+        }
+
+        if (baseMapLayers[(i * 2) + 1]) {
+            var layerInfo = baseMapLayers[(i * 2) + 1];
+            layerList.appendChild(CreateBaseMapElement(layerInfo));
+        }
+    }
+    if (!(dojo.isIE < 9)) {
+        dojo.addClass(dojo.byId("imgThumbNail" + baseMapLayers[0].Key), "selectedBaseMap");
+        if (dojo.isIE) {
+            dojo.byId("imgThumbNail" + baseMapLayers[0].Key).style.marginTop = "-5px";
+            dojo.byId("imgThumbNail" + baseMapLayers[0].Key).style.marginLeft = "-5px";
+            dojo.byId("spanBaseMapText" + baseMapLayers[0].Key).style.marginTop = "5px";
+        }
     }
 }
 
+//Create basemap images with respective titles
 function CreateBaseMapElement(baseMapLayerInfo) {
-    var tdBasemap = document.createElement('td');
-    tdBasemap.style.width = '110px';
-    var tblContainer = document.createElement('table');
-    tblContainer.style.width = '100%';
-    var tBody = document.createElement('tbody');
-    var trImage = document.createElement('tr');
-    var trSpan = document.createElement('tr');
-    var tdImage = document.createElement('td');
-    tdImage.id = "tdImage" + baseMapLayerInfo.Key;
-    tdImage.align = 'center';
-    tdImage.style.verticalAlign = 'middle';
-    tdImage.height = 75;
-    var tdSpan = document.createElement('td');
-    tdSpan.align = 'center';
-
+    var divContainer = document.createElement("div");
+    divContainer.className = "baseMapContainerNode";
     var imgThumbnail = document.createElement("img");
     imgThumbnail.src = baseMapLayerInfo.ThumbnailSource;
     imgThumbnail.className = "basemapThumbnail";
@@ -85,58 +54,45 @@ function CreateBaseMapElement(baseMapLayerInfo) {
     imgThumbnail.setAttribute("layerId", baseMapLayerInfo.Key);
     imgThumbnail.onclick = function () {
         ChangeBaseMap(this);
+        ShowBaseMaps();
     };
-
     var spanBaseMapText = document.createElement("span");
     spanBaseMapText.id = "spanBaseMapText" + baseMapLayerInfo.Key;
     spanBaseMapText.className = "basemapLabel";
     spanBaseMapText.innerHTML = baseMapLayerInfo.Name;
-
-    tdBasemap.appendChild(tblContainer);
-    tblContainer.appendChild(tBody);
-    tBody.appendChild(trImage);
-    tBody.appendChild(trSpan);
-    trImage.appendChild(tdImage);
-    trSpan.appendChild(tdSpan);
-    tdImage.appendChild(imgThumbnail);
-    tdSpan.appendChild(spanBaseMapText);
-
-    return tdBasemap;
+    divContainer.appendChild(imgThumbnail);
+    divContainer.appendChild(spanBaseMapText);
+    return divContainer;
 }
 
+//Toggle basemap layer
 function ChangeBaseMap(spanControl) {
     HideMapLayers();
     var key = spanControl.getAttribute('layerId');
 
-    for (var i = 0; i < baseMapLayerCollection.length; i++) {
-        dojo.removeClass(dojo.byId("imgThumbNail" + baseMapLayerCollection[i].Key), "selectedBaseMap");
+    for (var i = 0; i < baseMapLayers.length; i++) {
+        dojo.removeClass(dojo.byId("imgThumbNail" + baseMapLayers[i].Key), "selectedBaseMap");
         if (dojo.isIE) {
-            dojo.removeClass(dojo.byId("imgThumbNail" + baseMapLayerCollection[i].Key), "selectedBaseMap");
-            dojo.byId("imgThumbNail" + baseMapLayerCollection[i].Key).style.marginTop = "0px";
-            dojo.byId("imgThumbNail" + baseMapLayerCollection[i].Key).style.marginLeft = "0px";
-            dojo.byId("spanBaseMapText" + baseMapLayerCollection[i].Key).style.marginTop = "0px";
+            dojo.byId("imgThumbNail" + baseMapLayers[i].Key).style.marginTop = "0px";
+            dojo.byId("imgThumbNail" + baseMapLayers[i].Key).style.marginLeft = "0px";
+            dojo.byId("spanBaseMapText" + baseMapLayers[i].Key).style.marginTop = "0px";
         }
-        if (baseMapLayerCollection[i].Key == key) {
+        if (baseMapLayers[i].Key == key) {
             if (!(dojo.isIE < 9)) {
-                dojo.addClass(dojo.byId("imgThumbNail" + baseMapLayerCollection[i].Key), "selectedBaseMap");
+                dojo.addClass(dojo.byId("imgThumbNail" + baseMapLayers[i].Key), "selectedBaseMap");
                 if (dojo.isIE) {
-                    dojo.byId("imgThumbNail" + baseMapLayerCollection[i].Key).style.marginTop = "-5px";
-                    dojo.byId("imgThumbNail" + baseMapLayerCollection[i].Key).style.marginLeft = "-5px";
-                    dojo.byId("spanBaseMapText" + baseMapLayerCollection[i].Key).style.marginTop = "5px";
+                    dojo.byId("imgThumbNail" + baseMapLayers[i].Key).style.marginTop = "-5px";
+                    dojo.byId("imgThumbNail" + baseMapLayers[i].Key).style.marginLeft = "-5px";
+                    dojo.byId("spanBaseMapText" + baseMapLayers[i].Key).style.marginTop = "5px";
                 }
             }
-
-            for (var urlCount = 0; urlCount < baseMapLayerCollection[i].MapURL.length; urlCount++) {
-                var layer = map.getLayer(baseMapLayerCollection[i].MapURL[urlCount].LayerId);
-                if (layer) {
-                    ShowHideBaseMapComponent();
-                    layer.show();
-                }
-            }
+            var layer = map.getLayer(baseMapLayers[i].Key);
+            layer.show();
         }
     }
 }
 
+//Create basemap layer on the map
 function CreateBaseMapLayer(layerURL, layerId, isVisible) {
     var layer = '';
     if (layerURL.length > 0) {
@@ -147,33 +103,51 @@ function CreateBaseMapLayer(layerURL, layerId, isVisible) {
     }
 }
 
+//Hide layers
 function HideMapLayers() {
-    for (var i = 0; i < baseMapLayerCollection.length; i++) {
-        for (var urlCount = 0; urlCount < baseMapLayerCollection[i].MapURL.length; urlCount++) {
-            var layer = map.getLayer(baseMapLayerCollection[i].MapURL[urlCount].LayerId);
-            if (layer) {
-                layer.hide();
-            }
+    for (var i = 0; i < baseMapLayers.length; i++) {
+        var layer = map.getLayer(baseMapLayers[i].Key);
+        if (layer) {
+            layer.hide();
         }
     }
 }
 
-function ShowHideBaseMapComponent() {
-    var node = dojo.byId('divBaseMapTitleContainer');
-    var anim = dojo.byId('divContainer');
-    var divNode = dojo.byId('divAddressContainer');
-    if (dojo.coords(divNode).h > 0) {
-        WipeOutControl(divNode, 500);
+//Animate basemap container
+function ShowBaseMaps() {
+    if (dojo.coords("divAppContainer").h > 0) {
+        dojo.replaceClass("divAppContainer", "hideContainerHeight", "showContainerHeight");
+        dojo.byId('divAppContainer').style.height = '0px';
     }
-
-    if (dojo.coords(node).h > 0) {
-        WipeOutControl(node, 500);
+    if (dojo.coords("divAddressContent").h > 0) {
+        dojo.replaceClass("divAddressContent", "hideContainerHeight", "showContainerHeight");
+        dojo.byId('divAddressContent').style.height = '0px';
+    }
+    if (dojo.coords("divExpress").h > 0 || dojo.coords("divAccordion").h > 0) {
+        accHeight = dojo.coords("divAccordion").h;
+        dojo.replaceClass("divExpress", "hideContainerHeight", "showContainerHeight");
+        dojo.byId('divExpress').style.height = '0px';
+        dojo.replaceClass("divAccordion", "hideContainerHeight", "showContainerHeight");
+        dojo.byId('divAccordion').style.height = '0px';
+    }
+    var cellHeight = 115;
+    if (dojo.coords("divLayerContainer").h > 0) {
+        dojo.replaceClass("divLayerContainer", "hideContainerHeight", "showContainerHeight");
+        dojo.byId('divLayerContainer').style.height = '0px';
     }
     else {
-        WipeInControl(node, node.style.height, 500);
+        dojo.byId('divLayerContainer').style.height = cellHeight + "px";
+        dojo.byId('divLayerContentHolder').style.height = (cellHeight - 8) + "px";
+        dojo.byId('divLayerContentHolder').style.top = "0px";
+        dojo.replaceClass("divLayerContainer", "showContainerHeight", "hideContainerHeight");
     }
+
+    setTimeout(function () {
+        CreateScrollbar(dojo.byId("divLayerContainerHolder"), dojo.byId("divLayerContentHolder"));
+    }, 500);
 }
 
+//Add feature layer to map when map is loaded
 function AddFeatureLayers() {
     if (operationalLayersCollection.length != 0) {
         for (var i = 0; i < operationalLayersCollection.length; i++) {
@@ -189,21 +163,21 @@ function AddFeatureLayers() {
             }
 
             var featureLayer = CreateLineFeatureLayer(operationalLayersCollection[i], layerId, operationalLayersCollection[i].isLayerVisible);
-
             if (operationalLayersCollection[i].hasDynamicMapService) {
                 var symbol = new esri.symbol.SimpleFillSymbol().setColor(new dojo.Color([0, 0, 0, 0]));
                 var renderer = new esri.renderer.SimpleRenderer(symbol);
                 featureLayer.setRenderer(renderer);
             }
             map.addLayer(featureLayer);
-
             if (operationalLayersCollection[i].BuildingAttribute) {
-                dojo.connect(featureLayer, "onClick", ShowDetailsInfo);
+                dojo.connect(featureLayer, "onClick", function (evt) {
+                    outsideServiceRequest = false;
+                    ShowDetailsInfo(evt);
+                });
             }
         }
     }
     else {
-        ShowDialog('Error', 'No operational layer found. At least one operational layer is required. Please contact your administrator.');
         HideLoadingMessage();
     }
 }
@@ -216,6 +190,5 @@ function CreateLineFeatureLayer(layer, layerId, isLayerVisible) {
         displayOnPan: false,
         visible: isLayerVisible
     });
-
     return lineLayer;
 }

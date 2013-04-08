@@ -1,5 +1,5 @@
 ﻿/** @license
- | Version 10.1.1
+ | Version 10.2
  | Copyright 2012 Esri
  |
  | Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,20 +14,25 @@
  | See the License for the specific language governing permissions and
  | limitations under the License.
  */
-function liftHandler() {
-    dijit.byId('btnNavigator').setChecked(true);
+//display accordion and express based on config file data
+function LiftHandler() {
     if (floorSwitcher.IsExpressVisible || floorSwitcher.IsAccordionVisible) {
         if (floorSwitcher.IsExpressVisible && floorSwitcher.IsAccordionVisible) {
             dojo.byId('divExpress').style.display = 'block';
             dojo.byId('divAccordion').style.display = 'block';
+            dojo.byId('divExpress').style.height = '80px';
         }
         else if (floorSwitcher.IsExpressVisible) {
             dojo.byId('divExpress').style.display = 'block';
             dojo.byId('divAccordion').style.display = 'none';
+            dojo.replaceClass("divExpress", "showContainerHeight", "hideContainerHeight");
+            dojo.replaceClass("divAccordion", "hideContainerHeight", "showContainerHeight");
         }
         else {
             dojo.byId('divAccordion').style.display = 'block';
             dojo.byId('divExpress').style.display = 'none';
+            dojo.replaceClass("divAccordion", "showContainerHeight", "hideContainerHeight");
+            dojo.replaceClass("divExpress", "hideContainerHeight", "showContainerHeight");
         }
     }
     else {
@@ -36,46 +41,21 @@ function liftHandler() {
         dojo.byId('divExpress').style.display = 'none';
         dojo.byId('divAccordion').style.display = 'none';
     }
-}
-
-function ToggleNavigator() {
-    if (dijit.byId('btnNavigator').checked) {
-        if (floorSwitcher.IsExpressVisible) {
-            dojo.byId('divExpress').style.display = 'block';
-        }
-
-        if (floorSwitcher.IsAccordionVisible) {
-            dojo.byId('divAccordion').style.display = 'block';
-        }
-        if (dojo.coords(dojo.byId('divAddressContainer')).h > 0) {
-            WipeOutControl(dojo.byId('divAddressContainer'), 500);
-        }
-
-    }
-    else {
-        dojo.byId('divExpress').style.display = 'none';
-        dojo.byId('divAccordion').style.display = 'none';
-        var divNode = dojo.byId('divBaseMapTitleContainer');
-        if (dojo.coords(divNode).h > 0) {
-            WipeOutControl(divNode, 500);
-        }
-        if (dojo.coords(dojo.byId('divAddressContainer')).h > 0) {
-            WipeOutControl(dojo.byId('divAddressContainer'), 500);
-        }
-
-    }
+    accHeight = dojo.coords('divAccordion').h;
 }
 
 var currentIndex = 0;
 
 function InitializeSpinner(arrayObject, floor) {
     currentIndex = Number(GetFloorName(arrayObject, floor));
-
     dojo.byId('txtSpinner').value = arrayObject[GetFloorName(arrayObject, floor)].id;
-    dojo.byId('spanExpress').innerHTML = arrayObject[0].feature.attributes.BUILDINGKEY;
+    dojo.byId('spanExpress').innerHTML = dojo.string.substitute(serviceRequestLayerInfo.BuildingKey, arrayObject[0].feature.attributes);
 }
 
+//change floors on mouse scroll event
 function SpinnerMouseWheelEvent(evt) {
+    map.infoWindow.hide();
+    selectedGraphics = null;
     var arrayObject = arrBuilding[dojo.byId('spanExpress').innerHTML];
     var evt = window.event || evt; //equalize event object
     var delta = evt.detail ? evt.detail * (-120) : evt.wheelDelta; //delta returns +120 when wheel is scrolled up, -120 when scrolled down
@@ -103,6 +83,7 @@ function SpinnerMouseWheelEvent(evt) {
 
 function LoadNextBuilding(evt) {
     map.infoWindow.hide();
+    selectedGraphics = null;
     var arrayObject = arrBuilding[dojo.byId('spanExpress').innerHTML];
     currentIndex += 1;
     if (currentIndex > (arrayObject.length) - 1) {
@@ -116,6 +97,7 @@ function LoadNextBuilding(evt) {
 
 function LoadPreviousBuilding(evt) {
     map.infoWindow.hide();
+    selectedGraphics = null;
     var arrayObject = arrBuilding[dojo.byId('spanExpress').innerHTML];
     currentIndex -= 1;
     if (currentIndex < 0) {
@@ -127,7 +109,7 @@ function LoadPreviousBuilding(evt) {
     }
 };
 
-//function to get floor number based on index
+//get floor number
 function GetFloorName(arrayObject, floor) {
     for (var i in arrayObject) {
         if (arrayObject[i].id == floor) {
@@ -138,7 +120,10 @@ function GetFloorName(arrayObject, floor) {
     return 0;
 }
 
+//triggered when floor is changed
 function ExpressChangeEvent(floor) {
+    buildingID = currentBuilding;
+    floorID = floor;
     if (floor) {
         currentFloor = floor;
         if (currentBuilding) {
@@ -151,12 +136,16 @@ function ExpressChangeEvent(floor) {
     }
 }
 
+//change floors on-click of accordion radio buttons
 function ChangeFloor(imgControl) {
     map.infoWindow.hide();
+    selectedGraphics = null;
     var arr = imgControl.id.split('-');
     var buildingKey = arr[0];
     var floor = arr[1];
 
+    buildingID = buildingKey;
+    floorID = floor;
     if (buildingKey == currentBuilding) {
         if (currentFloor != floor) {
             currentFloor = floor;
@@ -184,7 +173,7 @@ function ChangeFloor(imgControl) {
     ToggleServiceRequestLayer();
 }
 
-function SelectFeatures(building, floor) {
+function SelectFeatures(building, floor, shareEnabled) {
     var query = new esri.tasks.Query();
     var building = building;
     var floor = floor;
@@ -192,7 +181,7 @@ function SelectFeatures(building, floor) {
     for (var layerIndex in operationalLayersCollection) {
         query.where = dojo.string.substitute(operationalLayersCollection[layerIndex].WhereQuery, [building, floor]);
         query.outFields = ["*"];
-        ShowLoadingMessage('Loading...');
+        ShowLoadingMessage();
         var featureLayer = map.getLayer(operationalLayersCollection[layerIndex].Key);
         if (operationalLayersCollection[layerIndex].hasDynamicMapService) {
             var dynamicMapServiceLayer = map.getLayer("dynamic" + operationalLayersCollection[layerIndex].Key);
@@ -204,7 +193,9 @@ function SelectFeatures(building, floor) {
             if (features.length > 0) {
                 if (features[0].geometry.type == 'polygon' && !isShowingSearchResult) {
                     if (!isShowingSearchResult) {
-                        map.setExtent(GetExtentPolygon(features).expand(2));
+                        if (!shareEnabled) {
+                            map.centerAt(GetExtentPolygon(features).getExtent().getCenter());
+                        }
                     }
                 }
             }
@@ -213,7 +204,7 @@ function SelectFeatures(building, floor) {
     }
 }
 
-//function to get Extent from featureset
+//get extent from feature set
 function GetExtentPolygon(featureSet) {
     var extent;
     dojo.forEach(featureSet, function (feature, i) {
@@ -227,7 +218,8 @@ function GetExtentPolygon(featureSet) {
     return extent;
 }
 
-function CreateFloorSwitcher(buildingArray, building, selectedFloor) {
+//create dom elements for radio buttons to switch floors
+function CreateFloorSwitcher(buildingArray, building, selectedFloor, accordion) {
     for (var bldg in buildingArray) {
         var divContainer;
         if (dojo.byId('divContainer' + bldg)) {
@@ -300,12 +292,17 @@ function CreateFloorSwitcher(buildingArray, building, selectedFloor) {
         if (bldg == building) {
             img.src = 'images/font-minus.png';
             img.className = "text";
-            WipeInControl(floorDiv, 50, 1000);
         }
         else {
             img.src = 'images/font-plus.png';
             img.className = "disabledText";
-            WipeOutControl(floorDiv, 1000);
+            if (accordion) {
+                WipeOutControl(floorDiv, null, 1000);
+            }
+            else {
+
+                WipeOutControl(floorDiv, null, 1000);
+            }
         }
 
         var floorTable = document.createElement('table');
@@ -399,17 +396,17 @@ function CreateFloorSwitcher(buildingArray, building, selectedFloor) {
     }
 }
 
+//display or hide containers in accordion
 function ShowHideLevel(evt) {
     var level = evt.id.split('-')[1];
     var divNode = dojo.byId('floorDiv-' + level);
 
     if (dojo.coords(divNode).h > 0) {
-        WipeOutControl(divNode, 500);
+        WipeOutControl(divNode, 53, 500);
         evt.src = 'images/font-plus.png';
     }
     else {
-        WipeInControl(divNode, 50, 500);
+        WipeInControl(divNode, 53, 500);
         evt.src = 'images/font-minus.png';
     }
-
 }

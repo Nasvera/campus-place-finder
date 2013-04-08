@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <!--
- | Version 10.1.1
+ | Version 10.2
  | Copyright 2012 Esri
  |
  | Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,26 +16,23 @@
  | limitations under the License.
 -->
 <Messages>
-  <addressToLocate>Please enter your search query.</addressToLocate>
-  <unableToLocate>Results not found.</unableToLocate>
-  <noResultFound>Results not found.</noResultFound>
-  <noLocationDet> location details not found.</noLocationDet>
-  <noFeatureFound>Related feature not found.</noFeatureFound>
-  <noBuildingFound>Building not found at current location.</noBuildingFound>
-  <noBaseLayerFound>No basemap layer found. Atleast one basemap layer is required. Please contact your administrator.</noBaseLayerFound>
-  <noOperationalLayerFound>No operational layer found. At least one operational layer is required. Please contact your administrator.</noOperationalLayerFound>
-  <textComment>Please enter Comment.</textComment>
-  <textCommentLimit>Comments should not exceed 250 characters.</textCommentLimit>
-  <selectLocation>Please select a location on map to create a request.</selectLocation>
-  <serviceReqtId>Service Request ID: #</serviceReqtId>
-  <serviceReqIdSuccess> has been created successfully.</serviceReqIdSuccess>
-  <spanErrorMsgType>Please select Request type.</spanErrorMsgType>
-  <exceededName>Name field should not exceed more than 50 characters.</exceededName>
-  <spanErrorMsgLength>Description exceed the maximum length of 255 characters.</spanErrorMsgLength>
-  <spanErrorMsgText>Invalid Name</spanErrorMsgText>
-  <spanErrorMsgPhoneEmail>Email or Phone number is required.</spanErrorMsgPhoneEmail>
-  <spanErrorMsgValidEmail>Please enter valid Email ID.</spanErrorMsgValidEmail>
-  <exceededMail>E-mail field should not exceed more than 100 characters</exceededMail>
-  <spanErrorMsgValidPhone>Please enter 10-digit phone number.</spanErrorMsgValidPhone>
-  <spanErrorMsgDigitPhone>Please enter 10-digit phone number.</spanErrorMsgDigitPhone>
+    <addressToLocate>Enter address to locate.</addressToLocate>
+    <noLocationDet> Location details not found.</noLocationDet>
+    <noFeatureFound>Related feature not found.</noFeatureFound>
+    <noBuildingFound>Building not found at current location.</noBuildingFound>
+    <textComment>Please enter Comment.</textComment>
+    <textCommentLimit>Comments should not exceed 250 characters.</textCommentLimit>
+    <selectLocation>Please select a location on map to create a request.</selectLocation>
+    <serviceReqtId>Service Request ID: #</serviceReqtId>
+    <serviceReqIdSuccess> has been created successfully.</serviceReqIdSuccess>
+    <spanErrorMsgType>Please select Request type.</spanErrorMsgType>
+    <exceededName>Name field should not exceed more than 50 characters.</exceededName>
+    <spanErrorMsgLength>Description exceed the maximum length of 255 characters.</spanErrorMsgLength>
+    <spanErrorMsgText>Invalid Name</spanErrorMsgText>
+    <spanErrorMsgPhoneEmail>Email or Phone number is required.</spanErrorMsgPhoneEmail>
+    <spanErrorMsgValidEmail>Please enter valid Email ID.</spanErrorMsgValidEmail>
+    <exceededMail>E-mail field should not exceed more than 100 characters.</exceededMail>
+    <spanErrorMsgValidPhone>Please enter 10-digit phone number.</spanErrorMsgValidPhone>
+    <tinyURLEngine>Bitly API is not able to generate tiny URL.</tinyURLEngine>
+    <invalidSearch>No results found</invalidSearch>
 </Messages>

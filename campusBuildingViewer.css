@@ -1,6 +1,6 @@
 ﻿/* This file contains the style settings for "Campus Building Viewer" template */
 /*
- | Version 10.1.1
+ | Version 10.2
  | Copyright 2012 Esri
  |
  | Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,33 +18,31 @@
 /* Use this file to perform the following: */
 
 /* 1. Set the body styles                       - { Style(s) to look for: html, body } */
-/* 2. Set the header styles                     - { Style(s) to look for: headerBackground,headerIcon,header,headerContent,disabledText,text,textBox,imgApp,imgLocateAddress,lblAppName,
-                                                                          divAddressContainer,divAddress,tdAddress}*/
-/* 3. Set the loading styles                    - { Style(s) to look for: divLoadingIndicator}*/
-/* 4. Set the styles for dijit buttons          - { Style(s) to look for: claro .dijitButton .dijitButtonNode,claro .dijitButtonHover .dijitButtonNode,claro .dijitButtonActive .dijitButtonNode,
-                                                                         claro .dijitToggleButton .dijitButtonNode,claro .dijitToggleButtonHover .dijitButtonNode,
-                                                                         claro .dijitToggleButtonChecked .dijitButtonNode,claro .dijitDialogPaneContent,claro .dijitTooltipContainer,claro .dijitTooltipConnector}*/
-/* 5. Set the styles for basemap container      - { Style(s) to look for: divBaseMapTitleContainer,basemapThumbnail,baseMapContainerNode,basemapLabel,divBaseMapContainer,selectedBaseMap,
-                                                                         divExpress,divAccordion  }*/
-/* 6. Set the styles for alert doialogs         - { Style(s) to look for: dijitDialogTitleBar,.dijitDialogCloseIcon,.divOk,dialogAlertMessage_underlay,dialogLoadMessage_underlay}*/
-/* 7. Set the styles for info window sprite     - { Style(s) to look for: infowindow .sprite,infowindow .titlebar,infowindow .content}*/
-/* 8. Set the styles for tab container          - { Style(s) to look for: divSubmitRequestContainer,divServiceRequestDetails,claro .dijitTabContainerBottom-dijitContentPane,claro .dijitTabChecked,claro .dijitTabChecked .dijitTabContent,
-                                                                         claro .dijitTabContainerBottom-tabs,claro .dijitTabContent,claro .dijitTabPane,
-                                                                         claro .dijitTabContainerBottom-dijitContentpane,claro .dijitTabPaneWrapper,claro .dijitTabContainerBottom-tabs .dijitTabChecked}*/
-/* 9.Set style for info window content          - { Style(s) to look for: tbl,tblTransparent,tblInfoWindow,tdDisplayField} */
-/* 10.Set the styles for scrollbar              - { Style(s) to look for: scrollbar_container,scrollbar_content,scrollbar_track,scrollbar_handle,scrollbar_footer,
-                                                                         add_scrollbar_container,add_scrollbar_content,add_scrollbar_handle,add_scrollbar_track }*/
-/* 11.Styles for combo boxes                    - { Style(s) to look for: claro .dijitTextBox,claro .dijitTextBoxFocused .dijitInputContainer,claro .dijitReset .dijitInputInner,claro .dijitComboBoxMenu .dijitMenuItemSelected,
+/* 2. Set splash screen styles                  - { Style(s) to look for: divSplashScreenContainer,divSplashScreenContent,divSplashScreenDialogContent,divSplashContainer,
+                                                    divSplashContent,customButton,customButtonInner,opacityHideAnimation,showContainer,hideContainer}*/
+/* 3. Set the header styles                     - { Style(s) to look for: disabledText,text,imgApp,lblAppName,tdAddress,divApplicationHeader,tdHeader,imgOptions,divLogo}*/
+/* 4. Set the loading styles                    - { Style(s) to look for: divLoadingIndicator}*/
+/* 5. Set the styles for basemap container      - { Style(s) to look for: basemapThumbnail,baseMapContainerNode,basemapLabel,selectedBaseMap,divExpress,divAccordion  }*/
+/* 5. Set the styles for info window sprite     - { Style(s) to look for: infowindow .sprite,infowindow .titlebar,infowindow .content,divSubmitRequestContainer,divServiceRequestDetails}*/
+/* 6.Set style for info window content          - { Style(s) to look for: divInfoWindowContainer,dj_ie ,divInfoWindowContainer,divInfoWindowContainer ,container,content,title, divTriangle,
+                                                    spanContentText,divInfoContainer,tbl,tblTransparent,tblInfoWindow,tdDisplayField} */
+/* 7.Set the styles for scrollbar               - { Style(s) to look for:  scrollbar_container,scrollbar_content,scrollbar_track,scrollbar_handle,scrollbar_footer,add_scrollbar_container,add_scrollbar_content
+                                                   add_scrollbar_handle,add_scrollbar_trac }*/
+/* 8.Styles for combo boxes                     - { Style(s) to look for: claro .dijitTextBox,claro .dijitTextBoxFocused .dijitInputContainer,claro .dijitReset .dijitInputInner,claro .dijitComboBoxMenu .dijitMenuItemSelected,
                                                                          claro .dijitComboBoxMenuActive .dijitMenuItemSelected,claro .dijitMenu,claro .dijitComboBoxMenu .dijitMenuItem,rounded,span.rounded:hover,
                                                                          bottomborder}*/
-/* 12.Style for RatingStar                      - { Style(s) to look for: ratingStar,ratingStarChecked,spanRating } */
-/* 13.Style for esri                            - { Style(s) to look for: esriLogo,esriOverviewMap.ovwTR,esriOverviewMap.ovwTR .ovwContainer } */
-/* 14.Styles for Text Validator                 - { Style(s) to look for: claro .dijitInputContainer,claro .dijitTextBoxError .dijitValidationContainer,claro .dijitTooltip }*/
-/* 15.Style for CreateFloorSwitcher             - { Style(s) to look for: contentBackground} */
-/* 16.Style for PopulatePlacesInGroup           - { Style(s) to look for: tdSubAddress:hover,tdSubAddress} */
-/* 17.Style for Spinner                         - { Style(s) to look for: spinner,txtSpinner,btnSpinner} */
-/* 18.Style for InfoPop field                   - { Style(s) to look for: mailAnchor,infoContainer} */
-/* 19.Style for Text                            - { Style(s) to look for: txtArea,txtAreaMouseOver,txtBox,textBorder,wordBreak,wordBreakComments,dateWordBreak} */
+/* 9.Style for RatingStar                       - { Style(s) to look for: ratingStar,ratingStarChecked,spanRating } */
+/* 10.Style for esri                            - { Style(s) to look for: esriLogo,esriOverviewMap.ovwTR,esriOverviewMap.ovwTR .ovwContainer } */
+/* 11.Styles for Text Validator                 - { Style(s) to look for: claro .dijitInputContainer,claro .dijitTextBoxError .dijitValidationContainer,claro .dijitTooltip }*/
+/* 12.Style for CreateFloorSwitcher             - { Style(s) to look for: contentBackground} */
+/* 13.Style for PopulatePlacesInGroup           - { Style(s) to look for: tdSubAddress:hover,tdSubAddress} */
+/* 14.Style for Spinner                         - { Style(s) to look for: spinner,txtSpinner,btnSpinner} */
+/* 15.Style for InfoPop field                   - { Style(s) to look for: mailAnchor,infoContainer} */
+/* 16.Style for Text                            - { Style(s) to look for: txtArea,txtAreaMouseOver,txtBox,textBorder,wordBreak,wordBreakComments,dateWordBreak} */
+/* 17.styles for address container              - { Style(s) to look for: hideContainerHeight,showContainerHeight,divAddressContent,tdSearchByPerson,tdSearchByPlace,imgLocate,divAddressPlaceHolder
+                                                    txtAddress,divAddressList,divAddressScrollContainer,divAddressList,divAddressScrollContent,tblHeader,tdSearchByUnPerson
+                                                    tdSearchByUnPlace}*/
+/* 18.styles for share map container            - { Style(s) to look for: divAppHolder,imgShare,divLayerContainer,divLayerHolder,divLayerContentHolder,divAppContainer,dijitMenuItem }*/
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 /* Styles for body*/
@@ -58,58 +56,117 @@ body, html
     font-family: Verdana;
     font-size: 11px !important;
     overflow: hidden;
+    color: White !important;
+}
+
+/* styles for Splash screen content*/
+.divSplashScreenContainer
+{
+    top: 0px;
+    left: 0px;
+    background: rgba(0,0,0,0.65);
+    -pie-background: rgba(0,0,0,0.65);
+    behavior: url("PIE.htc");
+    position: absolute;
+    z-index: 1003;
+    width: 100%;
+    height: 100%;
+}
+.divSplashScreenContent
+{
+    z-index: 1003;
+    background-color: black;
+    text-align: left;
+    width: 350px;
+    height: 290px;
+}
+
+.divSplashScreenDialogContent
+{
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 0 10px #fff;
+    -moz-box-shadow: 0 0 10px #fff;
+    -o-box-shadow: 0 0 10px #fff;
+    box-shadow: 0 0 10px #fff;
+    behavior: url("PIE.htc");
+}
+
+.divSplashContainer
+{
+    overflow: hidden;
+    position: relative;
+    color: White;
+}
+
+.divSplashContent
+{
+    padding-left: 10px;
+    overflow: hidden;
+    width: 90%;
+}
+
+.customButton
+{
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    background: -webkit-gradient(linear, left top, left bottom, from(#888), to(#454545)) !important;
+    background: -moz-linear-gradient(top, #888, #454545) !important;
+    background: -o-linear-gradient(#888, #454545) !important;
+    background: linear-gradient(#888, #454545) !important;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    overflow: hidden;
+    height: 25px !important;
+}
+
+.customButtonInner
+{
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#888888', endColorstr='#454545');
+    width: 100%;
+    height: 100%;
+}
+
+.opacityHideAnimation
+{
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: visibility 0s linear 0.5s, opacity 0.5s ease-in;
+    -moz-transition: visibility 0s linear 0.5s, opacity 0.5s ease-in;
+    -o-transition: visibility 0s linear 0.5s, opacity 0.5s ease-in;
+    transition: visibility 0s linear 0.5s, opacity 0.5s ease-in;
+}
+
+.showContainer
+{
+    -webkit-transition: All 0.5s ease-in;
+    -moz-transition: All 0.5s ease-in;
+    -o-transition: All 0.5s ease-in;
+    transition: All 0.5s ease-in;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+}
+
+.hideContainer
+{
+    -webkit-transition: All 0.5s ease-in;
+    -moz-transition: All 0.5s ease-in;
+    -o-transition: All 0.5s ease-in;
+    transition: All 0.5s ease-in;
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    -o-transform: scale(0);
+    transform: scale(0);
 }
 
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 /*Styles for header*/
-
-.headerBackground
-{
-    background: rgba(0,0,0,0.9);
-    -pie-background: rgba(0,0,0,0.9);
-    width: 100%;
-    height: 55px;
-    position: absolute;
-    top: 0px;
-    z-index: 100;
-    behavior: url("PIE.htc");
-}
-
-.header
-{
-    background-color: transparent;
-    color: White;
-    width: 100%;
-    background-repeat: no-repeat;
-    background-position: left top;
-    height: 55px;
-    top: 0px;
-    left: 100px;
-    position: absolute;
-    z-index: 100;
-}
-
-.headerContent
-{
-    color: White;
-    background-color: transparent;
-    width: 100%;
-    position: absolute;
-    z-index: 100;
-    top: 0px;
-    height: 55px;
-}
-
-.headerIcon
-{
-    background-color: transparent;
-    width: 75px;
-    position: absolute;
-    z-index: 100;
-    top: 0px;
-    left: 5px;
-}
 
 .disabledText
 {
@@ -127,23 +184,10 @@ body, html
     cursor: default !important;
 }
 
-.textBox
-{
-    background-color: #242422 !important;
-    border: none;
-    width: 222px;
-    color: #fff;
-    height: 30px;
-    padding: 0px !important;
-    line-height: 30px;
-    font-size: 13px;
-    margin-left: 1px !important;
-    font-family: Verdana !important;
-}
-
 .imgApp
 {
     width: 64px;
+    height: 64px;
     left: 0px;
     top: 0px;
     border: none;
@@ -152,37 +196,7 @@ body, html
 
 .lblAppName
 {
-    font-size: 24px;
-    font-weight: normal;
-}
-
-.imgLocateAddress
-{
-    width: 20px;
-    height: 20px;
-    right: 0px;
-    top: 2px;
-    position: relative;
-    cursor: pointer;
-}
-
-.divAddressContainer
-{
-    position: absolute;
-    z-index: 100;
-    background-color: #000;
-    border: 1px solid #fff;
-    width: 250px;
-    top: 43.5px;
-    right: 243px;
-}
-
-.divAddress
-{
-    position: relative;
-    border: 1px solid #7D7D7D;
-    width: 250px;
-    background-color: Black;
+    padding-left: 100px;
 }
 
 .tdAddress
@@ -190,10 +204,47 @@ body, html
     color: White;
     border-bottom: 1px solid #fff;
     width: 250px;
-    cursor: pointer;
-    font-size: 12px;
+}
+.divApplicationHeader
+{
+    color: White;
+    vertical-align: middle;
+    background: rgba(0,0,0,0.9);
+    -pie-background: rgba(0,0,0,0.9);
+    behavior: url("PIE.htc");
+    top: 0px;
+    height: 55px;
+    width: 100%;
+    position: absolute;
+    z-index: 1000;
+    overflow: hidden;
+    font-size: 24px;
 }
 
+.tdHeader
+{
+    width: 50px;
+    font-weight: bolder;
+}
+
+.imgOptions
+{
+    height: 30px !important;
+    width: 30px !important;
+    vertical-align: middle;
+    padding: 0px 5px 0px 0px;
+    cursor: pointer;
+}
+.divLogo
+{
+    position: absolute !important;
+    top: 0px;
+    left: 0px;
+    width: 75px;
+    height: 75px;
+    z-index: 1001;
+    display: none;
+}
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 /* Styles for loading */
@@ -207,7 +258,7 @@ body, html
     font-family: Verdana;
     background-color: Black;
     color: White;
-    z-index: 100;
+    z-index: 1005;
     position: absolute;
     bottom: 0px;
     filter: alpha(opacity = 65);
@@ -218,80 +269,7 @@ body, html
 
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
-/* Styles for dijit buttons*/
-
-.claro .dijitButton .dijitButtonNode
-{
-    background-color: Black !important;
-    color: White;
-}
-
-.claro .dijitButtonHover .dijitButtonNode
-{
-    background-color: #003d7d !important;
-    color: White !important;
-}
-
-.claro .dijitButtonActive .dijitButtonNode
-{
-    background-color: #ff9f0d !important;
-    color: Black !important;
-}
-
-.claro .dijitToggleButton .dijitButtonNode
-{
-    background-color: transparent !important;
-    background-image: none !important;
-    border: none !important;
-    padding: 5px !important;
-}
-
-.claro .dijitToggleButtonHover .dijitButtonNode
-{
-    background-color: #A9A9A9 !important;
-    background-image: url("images/titlebar.png") !important;
-}
-
-.claro .dijitToggleButtonChecked .dijitButtonNode
-{
-    background-color: #3F3F3F !important;
-    background-image: url("images/button.png") !important;
-}
-
-.claro .dijitDialogPaneContent
-{
-    background-color: Black !important;
-    color: White;
-}
-
-.claro .dijitTooltipContainer
-{
-    background-color: #000000 !important;
-    color: #ffffff !important;
-    border: 2px solid #fff !important;
-    font-size: 12px !important;
-    font-family: Verdana !important;
-    z-index: 1000;
-}
-
-.claro .dijitTooltipConnector
-{
-    width: 0px !important;
-}
-
-/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-
 /*Styles for basemap container*/
-
-.divBaseMapTitleContainer
-{
-    width: 250px;
-    height: auto;
-    position: absolute;
-    z-index: 10000;
-    top: 45px;
-    right: 20px;
-}
 
 .basemapThumbnail
 {
@@ -313,28 +291,19 @@ body, html
 .basemapLabel
 {
     background-color: transparent;
-    color: #F5F5DC;
+    color: #fff;
     text-align: center;
     width: 100%;
     overflow: hidden;
     display: block;
-    font-size: 11px;
-}
-
-.divBaseMapContainer
-{
-    background-color: #000;
-    overflow: hidden !important;
-    border: 1px solid #fff !important;
-    width: 226px;
 }
 
 .selectedBaseMap
 {
-    -webkit-box-shadow: 0 0 15px #FFE771 !important;
-    -moz-box-shadow: 0 0 15px #FFE771 !important;
-    box-shadow: 0 0 15px #FFE771 !important;
-    filter: progid:DXImageTransform.Microsoft.Glow(color='#8EAE21', Strength='6');
+    -webkit-box-shadow: 0 0 15px #63BA65;
+    -moz-box-shadow: 0 0 15px #63BA65;
+    box-shadow: 0 0 15px #63BA65;
+    filter: progid:DXImageTransform.Microsoft.Glow(color='#8EAE21', Strength='4');
 }
 
 .divExpress
@@ -344,16 +313,12 @@ body, html
     top: 80px;
     z-index: 100;
     width: 150px;
-    padding-top: 5px;
-    padding-bottom: 5px;
     border-radius: 6px;
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
     font-size: 11px !important;
     font-family: Verdana !important;
-    background: rgba(0,0,0,0.9);
-    -pie-background: rgba(0,0,0,0.9);
-    behavior: url("PIE.htc");
+    background: rgb(48, 48, 48);
 }
 
 .divAccordion
@@ -363,110 +328,14 @@ body, html
     z-index: 100;
     width: 150px;
     color: #fff;
-    padding-top: 5px;
-    padding-bottom: 5px;
     font-size: 11px !important;
     font-family: Verdana !important;
     border-radius: 6px;
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
-    background: rgba(0,0,0,0.9);
-    -pie-background: rgba(0,0,0,0.9);
-    behavior: url("PIE.htc");
+    background: rgb(48, 48, 48);
 }
 
-/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-
-/*Styles for alert dialogs */
-
-.dijitDialogTitleBar
-{
-    background: url(images/titlebar.png) !important;
-    color: White;
-    height: 20px;
-    font-size: 11px;
-    font-weight: bold;
-    background-color: Black !important;
-    border-left: none !important;
-    border-right: none !important;
-    border-top: none !important;
-    border-bottom: none !important;
-}
-
-.dijitDialogCloseIcon
-{
-    background: url(images/dialogClose.png) no-repeat !important;
-    right: 8px !important;
-    width: 12px !important;
-    height: 12px !important;
-    top: 10px !important;
-}
-
-.divOk
-{
-    border-width: 1px;
-    color: White;
-    background-color: Black;
-    width: 50px;
-    height: 15px;
-    border-style: solid;
-    border-color: white;
-    font-size: 11px;
-    text-align: center;
-    cursor: pointer;
-}
-
-.dialogAlertMessage_underlay
-{
-    background-color: #000;
-    filter: alpha(opacity=20);
-    -moz-opacity: 0.20;
-    -khtml-opacity: 0.20;
-    opacity: 0.20;
-}
-
-.dialogLoadMessage_underlay
-{
-    background-color: #000;
-    filter: alpha(opacity=20);
-    -moz-opacity: 0.20;
-    -khtml-opacity: 0.20;
-    opacity: 0.20;
-}
-
-/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-
-/* Styles for Infowindow sprite*/
-
-.infowindow .sprite
-{
-    background-image: url("images/infowindow.png") !important;
-    _background-image: none !important;
-    color: White;
-    _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true', sizingMethod='crop', src='images/infowindow.png') !important;
-}
-
-.infowindow .titlebar
-{
-    color: White;
-    font-size: 11px !important;
-    font-weight: bolder;
-    font-family: verdana;
-}
-
-.infowindow .content
-{
-    color: White;
-    font-family: Verdana;
-    font-size: 11px !important;
-    height: 280px !important;
-}
-
-.claro .dijitDialogTitle
-{
-    font-size: 11px !important;
-    font-weight: bolder !important;
-}
 
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
@@ -474,93 +343,109 @@ body, html
 
 .divSubmitRequestContainer
 {
-    height: 225px;
+    position: relative;
+    overflow: hidden;
     width: 100%;
 }
 
 .divServiceRequestDetails
 {
     overflow: hidden;
-    height: 225px;
+    margin-left:5px;
 }
 
-.claro .dijitTabContainerBottom-dijitContentPane
-{
-    background-color: transparent !important;
-    overflow: hidden;
-    padding: 0px !important;
-}
-
-.claro .dijitTabChecked
-{
-    color: Black !important;
-    padding: none !important;
-}
-
-.claro .dijitTabChecked .dijitTabContent
-{
-    background-color: Orange !important;
-    color: Black !important;
-    background-position: 50% bottom !important;
-}
-
-.claro .dijitTabContainerBottom-tabs
-{
-    border-top: none !important;
-}
-
-.claro .dijitTabContent
-{
-    background-image: url(images/tabBottom.png) !important;
-    background-color: #1C1C1C !important;
-    width: 136px !important;
-    border-top: #b5bcc7 1px solid !important;
-    font-size: 11px;
-    font-weight: bold;
-    font-family: Verdana;
-    color: White;
-    padding-bottom: 7px !important;
-    padding-top: 5px !important;
-}
-
-.claro .dijitTabPane
-{
-    border-bottom: 1px solid #fff !important;
-}
-
-.claro .dijitTabContainerBottom-dijitContentpane
-{
-    background-color: transparent !important;
-    width: 100% !important;
-}
-
-.claro .dijitTabPaneWrapper
-{
-    background-color: transparent !important;
-}
-
-.claro .dijitTabContainerBottom-tabs .dijitTabChecked
-{
-    padding-bottom: 3px !important;
-}
 
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 /*Style for Info Window Content*/
 
-.tbl
+
+.divInfoWindowContainer
 {
-    width: 250px;
-    border: 2px solid #4E4848;
+    z-index: 1000;
+    position: absolute;
+    background-color: #585858;
+    color: #fff;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
 }
-.tbl7
+
+.dj_ie .divInfoWindowContainer
 {
-    border-width: 2px;
-    border-color: #4E4848;
-    width: 250px;
-    border-top-style: solid;
-    border-bottom-style: solid;
-    border-left-style: solid;
+    border: none;
+}
+
+.divInfoWindowContainer .container
+{
+    position: absolute !important;
+    top: 0;
+    left: 0;
+}
+
+.divInfoWindowContainer .content
+{
+    position: relative;
+    color: #fff;
+}
+
+.divInfoWindowContainer .title
+{
+    font-weight: bolder;
+    height: 21px;
+    padding: 7px 3px 2px 7px !important;
+    color: #fff;
+    background-color: #303030;
+    -moz-border-radius-topleft: 7px;
+    -moz-border-radius-topright: 7px;
+    -moz-border-radius-bottomleft: 0px;
+    -moz-border-radius-bottomright: 0px;
+    -webkit-border-top-left-radius: 7px;
+    -webkit-border-top-right-radius: 7px;
+    -webkit-border-bottom-left-radius: 0px;
+    -webkit-border-bottom-right-radius: 0px;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-bottom: gray 1px solid;
+}
+.divInfoWindowContainer .content
+{
+    padding: 0px !important;
+    overflow: hidden;
+}
+.title
+{
+    font-weight: bolder;
+}
+
+.divTriangle
+{
+    border: solid 20px transparent;
+    border-top-color: #585858;
+    border-bottom: 0;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    display: block;
+    position: relative;
+    margin: auto;
+    bottom: 0px;
+}
+.spanContentText
+{
+    margin-left: 5px;
+    margin-top: 5px;
+}
+.divInfoContainer
+{
+    z-index: 1002;
+    background-color: transparent;
+}
+.content
+{
+    height: 100%;
 }
 
 .tblTransparent
@@ -589,7 +474,7 @@ body, html
 
 .scrollbar_container
 {
-    width: 295px;
+    width: 100%;
     max-height: 230px;
     position: relative;
     overflow: hidden;
@@ -598,7 +483,6 @@ body, html
 .scrollbar_content
 {
     overflow: hidden;
-    width: 280px;
     max-height: 230px;
     border: none;
 }
@@ -606,9 +490,11 @@ body, html
 .scrollbar_track
 {
     position: absolute;
+    right: 0;
+    top: 4px;
     background-color: transparent;
-    display: none;
-    right: 1px !important;
+    cursor: default;
+    display: block;
 }
 
 .scrollbar_handle
@@ -618,12 +504,14 @@ body, html
     background-color: Silver;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
+    border-radius: 5px;
     opacity: 0.9;
     -moz-opacity: 0.9;
     cursor: default;
+    behavior: url("PIE.htc");
 }
 
-.scrollbar_footer
+/*.scrollbar_footer
 {
     position: absolute;
     top: 210px;
@@ -662,23 +550,51 @@ body, html
     background-color: transparent;
     display: none;
     right: 2px;
-}
+}*/
 
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 /*Styles for combo boxes */
-
-.claro .dijitTextBox
+.dijitButtonNode
 {
-    background-color: #000 !important;
-    color: #fff !important;
-    font-family: Tahoma, Arial;
-    font-size: 11px;
+    height: 21px !important;
+    width: 20px !important;
+    padding-left: 3px !important;
+    padding-top: 4px !important;
+    padding-right: 2px !important;
+}
+.dijitInputContainer, .dijitInputInner
+{
+    height: 20px !important;
 }
 
+.dijitTextBox, .dijitInputContainer, .dijitButtonNode
+{
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+.dijitReset .dijitInputField .dijitArrowButtonInner
+{
+    margin-left: 5px !important;
+    background-position: 0px -177px !important;
+    padding-top: 7px !important;
+    border: 0px !important;
+}
+.claro .dijitTextBox
+{
+    background-color: #333333 !important;
+    color: #fff !important;
+    font-family: verdana !important;
+    font-size: 11px;
+}
+.dijitTextBox
+{
+    border-width: 0px !important;
+}
 .claro .dijitTextBoxFocused .dijitInputContainer
 {
-    background-color: #000 !important;
+    background-color: #333333 !important;
     color: #fff !important;
 }
 
@@ -690,21 +606,22 @@ body, html
 .claro .dijitComboBoxMenu .dijitMenuItemSelected
 {
     background-position: 0px -177px !important;
-    background-color: #2F2F4F !important;
+    background-color: #333333 !important;
     color: White !important;
 }
 
 .claro .dijitComboBoxMenuActive .dijitMenuItemSelected
 {
     background-position: 0px -177px;
-    background-color: red !important;
+    background-color: #333333 !important;
     color: #fff !important;
 }
 
 .claro .dijitMenu
 {
-    background-color: Black !important;
+    background-color: #333333 !important;
     color: #fff !important;
+    border: 1px solid #000 !important;
 }
 
 .claro .dijitComboBoxMenu .dijitMenuItem
@@ -716,20 +633,37 @@ body, html
     white-space: -o-pre-wrap;
     word-wrap: break-word;
 }
+.dijitMenuItemHover
+{
+    background-color: RGB(88, 88, 88) !important;
+}
 
 .rounded
 {
-    background: transparent url(images/buttonImage.png ) no-repeat scroll;
     clear: left;
     font-family: Verdana;
-    font-size: 10px;
+    font-size: 11px;
     display: block;
     height: 25px;
     line-height: 25px;
     width: 84px;
     text-align: center;
     color: White;
+    -moz-border-top-right-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-top-left-radius: 5px;
+    -webkit-border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    -moz-border-bottom-right-radius: 5px;
+    -webkit-bottom-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    -moz-border-bottom-left-radius: 5px;
+    -webkit-bottom-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    text-align: center;
     cursor: pointer;
+    background-color: #333333;
 }
 
 span.rounded:hover
@@ -753,7 +687,7 @@ span.rounded:hover
     background-position: left center;
     height: 15px;
     width: 15px;
-    float: left; /* cursor: pointer;*/
+    float: left;
 }
 
 .ratingStarChecked
@@ -792,11 +726,11 @@ span.rounded:hover
 
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
-/* Set the styles for Text Validator    */
+/* Set the styles for Text Validation    */
 
 .claro .dijitInputContainer
 {
-    background-color: Black !important;
+    background-color: #333333 !important;
     color: White !important;
 }
 
@@ -816,7 +750,7 @@ span.rounded:hover
 
 .contentBackground
 {
-    background-color: Black;
+    background-color: rgb(48, 48, 48);
     width: 116px;
     border: White 1px solid;
 }
@@ -886,26 +820,43 @@ span.rounded:hover
 
 .infoContainer
 {
-    padding-left: 3px !important;
+    padding-left: 5px !important;
 }
 
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 /*Style for Text */
 
-.txtArea
+.txtArea, .txtBox
 {
-    background-color: black;
-    border: 1px solid #b5bcc7;
-    width: 195px;
+    border: none !important;
+    outline: none;
     padding: 0px !important;
-    color: white;
-    font-family: Verdana;
+    margin-left: 4px;
+    vertical-align: middle;
+    background-color: #333333;
+    color: #fff;
+    font-family: Verdana !important;
+    width: 230px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    overflow: auto;
     font-size: 11px;
-    height: 45px;
-    resize: none;
+    overflow-x: hidden;
 }
 
+.txtArea
+{
+    resize: none !important;
+    height: 50px;
+}
+
+.txtBox
+{
+    height: 25px;
+    line-height: 23px !important;
+}
 .txtAreaMouseOver
 {
     background-color: black;
@@ -918,16 +869,7 @@ span.rounded:hover
     resize: none;
 }
 
-.txtBox
-{
-    font-size: 11px;
-    width: 195px;
-    height: 18px;
-    color: White;
-    background-color: Black;
-    border: 1px solid #b5bcc7;
-    padding: 0px !important;
-}
+
 
 .textBorder
 {
@@ -945,6 +887,11 @@ span.rounded:hover
     display: inline-block;
 }
 
+.tdBreak
+{
+    word-wrap: break-word;
+}
+
 .wordBreakComments
 {
     word-break: break-all;
@@ -957,11 +904,269 @@ span.rounded:hover
     word-wrap: break-word;
 }
 
-/*.dijitTabInnerDiv
+.tableHeader
 {
-    width:150px !important;
+    width: 100%;
+    height: 100%;
 }
-*/
 
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
+/* styles for address container*/
+
+.hideContainerHeight
+{
+    overflow: hidden;
+    -webkit-transition: height 0.5s ease-in;
+    -moz-transition: height 0.5s ease-in;
+    -o-transition: height 0.5s ease-in;
+    transition: height 0.5s ease-in;
+    height: 0px;
+}
+
+.showContainerHeight
+{
+    overflow: hidden;
+    -webkit-transition: height 0.5s ease-in;
+    -moz-transition: height 0.5s ease-in;
+    -o-transition: height 0.5s ease-in;
+    transition: height 0.5s ease-in;
+    height: 100%;
+}
+
+.divAddressContent
+{
+    z-index: 1002;
+    position: absolute;
+    top: 60px;
+    right: 15px;
+    width: 300px;
+    background-color: #585858;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+}
+
+.tdSearchByPerson
+{
+    margin-left: 50px;
+    margin-right: 10px;
+    height: 25px;
+    -moz-border-top-left-radius: 5px;
+    -webkit-border-top-left-radius: 5px;
+    border-top-left-radius: 5px;
+    -moz-border-bottom-left-radius: 5px;
+    -webkit-bottom-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    text-align: center;
+    cursor: default;
+    background-color: #AAAAAA;
+    width: 90px;
+}
+
+.tdSearchByPlace
+{
+    width: 90px;
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 25px;
+    -moz-border-top-right-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    border-top-right-radius: 5px;
+    -moz-border-bottom-right-radius: 5px;
+    -webkit-bottom-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    text-align: center;
+    cursor: default;
+    background-color: #AAAAAA;
+}
+.imgLocate
+{
+    height: 30px !important;
+    width: 30px !important;
+    vertical-align: middle;
+    top: 45px;
+    right: 25px;
+    position: absolute;
+    cursor: pointer;
+}
+
+.divAddressPlaceHolder
+{
+    border: 1px solid #242424;
+    background-color: #333333;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    position: relative;
+    width: 282px;
+}
+
+.txtAddress
+{
+    background-color: #333333;
+    color: gray;
+    width: 100%;
+    border: none !important;
+    outline: none;
+    padding: 0px !important;
+    vertical-align: middle;
+    font-family: Verdana !important;
+    vertical-align: middle !important;
+    height: 30px !important;
+    font-size: 11px !important;
+    line-height: 30px;
+}
+
+.divAddressList
+{
+    margin-top: 5px;
+    color: #fff;
+    z-index: 101;
+    background-color: transparent;
+    border: none;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    behavior: url("PIE.htc");
+}
+
+.divAddressScrollContainer
+{
+    overflow: hidden;
+    position: relative;
+}
+
+.divAddressList
+{
+    margin-top: 5px;
+    color: #fff;
+    z-index: 101;
+    background-color: transparent;
+    border: none;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    behavior: url("PIE.htc");
+}
+
+.divAddressScrollContent
+{
+    overflow: hidden;
+    width: 93%;
+    color: #fff;
+    height: 165px;
+}
+
+.tblHeader
+{
+    background-color: #303030;
+    -moz-border-radius-topleft: 7px;
+    -moz-border-radius-topright: 7px;
+    -moz-border-radius-bottomleft: 0px;
+    -moz-border-radius-bottomright: 0px;
+    -webkit-border-top-left-radius: 7px;
+    -webkit-border-top-right-radius: 7px;
+    -webkit-border-bottom-left-radius: 0px;
+    -webkit-border-bottom-right-radius: 0px;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-bottom: gray 1px solid;
+    color: White;
+}
+.tdSearchByUnPerson
+{
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 25px;
+    text-align: center;
+    background: #202020; /* Old browsers */
+    -moz-border-top-left-radius: 5px;
+    -webkit-border-top-left-radius: 5px;
+    border-top-left-radius: 5px;
+    -moz-border-bottom-left-radius: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    cursor: pointer;
+    width: 90px;
+}
+
+.tdSearchByUnPlace
+{
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 25px;
+    text-align: center;
+    background: #202020; /* Old browsers */
+    -moz-border-top-right-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    border-top-right-radius: 5px;
+    -moz-border-bottom-right-radius: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    cursor: pointer;
+    width: 90px;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*styles for share map container*/
+.divAppHolder
+{
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    background: rgba(0,0,0,0.9);
+    -pie-background: rgba(0,0,0,0.9);
+    behavior: url("PIE.htc");
+}
+
+.imgShare
+{
+    height: 30px !important;
+    width: 30px !important;
+    cursor: pointer;
+}
+
+.divLayerContainer
+{
+    position: absolute;
+    top: 60px;
+    right: 15px;
+    width: 260px;
+    z-index: 1002;
+    background-color: transparent;
+}
+
+.divLayerHolder
+{
+    width: 260px;
+    height: 115px;
+    background: rgba(0,0,0,0.9);
+    -pie-background: rgba(0,0,0,0.9);
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    behavior: url("PIE.htc");
+}
+
+.divLayerContentHolder
+{
+    overflow: auto;
+    padding: 7px;
+}
+
+.divAppContainer
+{
+    position: absolute;
+    z-index: 1000;
+    top: 60px;
+    right: 15px;
+}
+
+.dijitMenuItem
+{
+    color: White !important;
+}
 
