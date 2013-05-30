@@ -338,24 +338,24 @@ dojo.declare("js.config", null, {
     // Note: DateFieldName refers to a date database field.
     // All other attributes refer to text database fields.
     DatabaseFields: {
-        RequestIdFieldName: "requestid",
-        CommentsFieldName: "comments",
-        DateFieldName: "submitdt",
-        RankFieldName: "rank"
+        RequestIdFieldName: "REQUESTID",
+        CommentsFieldName: "COMMENTS",
+        DateFieldName: "SUBMITDT",
+        RankFieldName: "RANK"
     },
 
     //Define service request input fields for submitting a new request
     ServiceRequestFields: {
-        RequestTypeFieldName: "requesttype",
-        CommentsFieldName: "comments",
-        NameFieldName: "name",
-        PhoneFieldName: "phone",
-        EmailFieldName: "email",
-        StatusFieldName: "status",
-        RequestDateFieldName: "requestdate",
-        BuildingFieldName: "building",
-        FloorFieldName: "floor",
-        RequestIdFieldName: "requestid"
+        RequestTypeFieldName: "REQUESTTYPE",
+        CommentsFieldName: "COMMENTS",
+        NameFieldName: "NAME",
+        PhoneFieldName: "PHONE",
+        EmailFieldName: "EMAIL",
+        StatusFieldName: "STATUS",
+        RequestDateFieldName: "REQUESTDATE",
+        BuildingFieldName: "BUILDING",
+        FloorFieldName: "FLOOR",
+        RequestIdFieldName: "REQUESTID"
     },
 
     //Define building and floor input fields for getting the exact location on map click
