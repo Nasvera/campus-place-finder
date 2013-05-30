@@ -209,7 +209,7 @@ function Init() {
                       { "level": 19, "resolution": 0.298582141647617, "scale": 1128.497176 },
                       { "level": 20, "resolution": 0.149291444416222, "scale": 564.25 },
                       { "level": 21, "resolution": 0.0746443992887986, "scale": 282.12 },
-                      { "level": 22, "resolution": 0.0373221996443993, "scale": 141.06 }
+                      { "level": 22, "resolution": 0.037470366607399885, "scale": 141.62 }
                     ];
 
     map = new esri.Map("map", {//load map object
