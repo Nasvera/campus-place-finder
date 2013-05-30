@@ -64,7 +64,7 @@ dojo.declare("js.config", null, {
     HelpURL: "help.htm",
 
     // Initial map extent. Use comma (,) to separate values and don't delete the last comma
-    DefaultExtent: "-9813316,5126565,-9812588,5126893",
+    DefaultExtent: "-9813160,5126658,-9812796,5126822",
 
     // Geometry service URL
     GeometryService: "http://arcgis-tenone2012-1974758903.us-west-1.elb.amazonaws.com/arcgis/rest/services/Utilities/Geometry/GeometryServer",
