@@ -331,7 +331,7 @@ dojo.declare("js.config", null, {
     //Set floor switcher
     FloorSwitcher: {
         IsExpressVisible: true,
-        IsAccordionVisible: true
+        IsAccordionVisible: false
     },
 
     // Define the database field names
