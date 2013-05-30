@@ -85,7 +85,7 @@ dojo.declare("js.config", null, {
     BaseMapLayers: [{
         Key: "worldTopoMap",
         ThumbnailSource: "images/TopoCampus.png",
-        Name: "Topo + Campus",
+        Name: "Campus",
         MapURL: [{
             LayerId: "worldTopoMap",
             MapURL: "http://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer"
@@ -112,7 +112,7 @@ dojo.declare("js.config", null, {
         isEnabled: true,
         LayerInfo: {
             Key: "srFloor0",
-            ServiceURL: "http://203.199.47.146/arcgis/rest/services/ServiceRequest/ServiceRequestCPF/FeatureServer/0",
+            ServiceURL: "http://services.arcgis.com/b6gLrKHqgkQb393u/arcgis/rest/services/ServiceRequestFloors/FeatureServer/0",
             WhereQuery: "floor = '${0}' AND status = 'Unassigned' AND (building = '${1}' or building = 'outside')",
             OutFields: "*",
             RequestId: "${requestid}",
@@ -121,7 +121,7 @@ dojo.declare("js.config", null, {
             Building: "${building}",
             Floor: "${floor}",
             RequestTypeFieldName: "requesttype",
-            CommentsLayerURL: "http://203.199.47.146/arcgis/rest/services/ServiceRequest/ServiceRequestCPF/FeatureServer/4",
+            CommentsLayerURL: "http://services.arcgis.com/b6gLrKHqgkQb393u/arcgis/rest/services/ServiceRequestFloors/FeatureServer/4",
             CommentsOutFields: "*",
             //Set the primary key attribute for the comments
             CommentId: "${requestid}",
