@@ -113,18 +113,18 @@ dojo.declare("js.config", null, {
         LayerInfo: {
             Key: "srFloor0",
             ServiceURL: "http://services.arcgis.com/b6gLrKHqgkQb393u/arcgis/rest/services/ServiceRequestFloors/FeatureServer/0",
-            WhereQuery: "floor = '${0}' AND status = 'Unassigned' AND (building = '${1}' or building = 'outside')",
+            WhereQuery: "FLOOR = '${0}' AND STATUS = 'Unassigned' AND (BUILDING = '${1}' or BUILDING = 'outside')",
             OutFields: "*",
-            RequestId: "${requestid}",
-            ShareFields: "${requestid}",
-            ShareQuery: "objectid = '${0}'",
-            Building: "${building}",
-            Floor: "${floor}",
-            RequestTypeFieldName: "requesttype",
+            RequestId: "${REQUESTID}",
+            ShareFields: "${REQUESTID}",
+            ShareQuery: "OBJECTID = '${0}'",
+            Building: "${BUILDING}",
+            Floor: "${FLOOR}",
+            RequestTypeFieldName: "REQUESTTYPE",
             CommentsLayerURL: "http://services.arcgis.com/b6gLrKHqgkQb393u/arcgis/rest/services/ServiceRequestFloors/FeatureServer/4",
             CommentsOutFields: "*",
             //Set the primary key attribute for the comments
-            CommentId: "${requestid}",
+            CommentId: "${REQUESTID}",
             BuildingFloorPlan: "http://203.199.47.146/arcgis/rest/services/CampusPlaceFinder/BuildingInterior_norelation/MapServer/2",
             BuildingAttribute: "BUILDINGKEY",
             BuildingKey: "${BUILDINGKEY}"
@@ -137,33 +137,33 @@ dojo.declare("js.config", null, {
         // Set the content to be displayed on the info-Popup. Define labels, field values, field types and field formats
         InfoPopupFieldsCollection: [{
             DisplayText: "Name:",
-            FieldName: "${name}",
+            FieldName: "${NAME}",
             HideCondition: true
         }, {
             DisplayText: "Phone:",
-            FieldName: "${phone}",
+            FieldName: "${PHONE}",
             HideCondition: true
         }, {
             DisplayText: "Email:",
             Email: true,
-            FieldName: "${email}",
+            FieldName: "${EMAIL}",
             HideCondition: true
         }, {
             DisplayText: "Place:",
-            FieldName: "${building}-${floor}",
+            FieldName: "${BUILDING}-${FLOOR}",
             DataType: "string"
         }, {
             DisplayText: "Type:",
-            FieldName: "${requesttype}",
+            FieldName: "${REQUESTTYPE}",
             DataType: "string"
         }, {
             DisplayText: "Description:",
-            FieldName: "${comments}",
+            FieldName: "${COMMENTS}",
             DataType: "description",
             id: "comments"
         }, {
             DisplayText: "Date Submitted:",
-            FieldName: "${requestdate}",
+            FieldName: "${REQUESTDATE}",
             DataType: "date",
             FormatDateAs: "MMM dd, yyyy"
         }]
