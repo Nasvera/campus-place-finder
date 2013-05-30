@@ -91,7 +91,7 @@ dojo.declare("js.config", null, {
             MapURL: "http://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer"
         }, {
             LayerId: "campusMap",
-            MapURL: "http://arcgis-tenone2012-1974758903.us-west-1.elb.amazonaws.com/arcgis/rest/services/GeneralPurpose/MapServer"
+            MapURL: "http://ec2-54-214-140-9.us-west-2.compute.amazonaws.com:6080/arcgis/rest/services/Campus/MapServer"
         }]
     }, {
         Key: "worldImageryMap",
