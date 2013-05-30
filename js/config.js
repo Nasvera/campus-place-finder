@@ -71,7 +71,7 @@ dojo.declare("js.config", null, {
 
     // URL for querying total buildings and floors
     QueryTaskURL: {
-        QueryURL: "http://203.199.47.146/arcgis/rest/services/CampusPlaceFinder/BuildingInterior_norelation/MapServer/0",
+        QueryURL: "http://ec2-54-214-140-9.us-west-2.compute.amazonaws.com:6080/arcgis/rest/services/BuildingInterior/MapServer/0",
         BuildingKey: "${BUILDINGKEY}",
         Floor: "${FLOOR}"
     },
@@ -91,7 +91,7 @@ dojo.declare("js.config", null, {
             MapURL: "http://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer"
         }, {
             LayerId: "campusMap",
-            MapURL: "http://arcgis-tenone2012-1974758903.us-west-1.elb.amazonaws.com/arcgis/rest/services/Campus/MapServer"
+            MapURL: "http://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer"
         }]
     }, {
         Key: "worldImageryMap",
@@ -99,7 +99,7 @@ dojo.declare("js.config", null, {
         Name: "Imagery",
         MapURL: [{
             LayerId: "worldImageryMap",
-            MapURL: "http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer"
+            MapURL: "http://arcgis-tenone2012-1974758903.us-west-1.elb.amazonaws.com/arcgis/rest/services/ImageryHybrid/MapServer"
         }]
     }],
 
@@ -125,7 +125,7 @@ dojo.declare("js.config", null, {
             CommentsOutFields: "*",
             //Set the primary key attribute for the comments
             CommentId: "${REQUESTID}",
-            BuildingFloorPlan: "http://203.199.47.146/arcgis/rest/services/CampusPlaceFinder/BuildingInterior_norelation/MapServer/2",
+            BuildingFloorPlan: "http://ec2-54-214-140-9.us-west-2.compute.amazonaws.com:6080/arcgis/rest/services/BuildingInterior/MapServer/2",
             BuildingAttribute: "BUILDINGKEY",
             BuildingKey: "${BUILDINGKEY}"
         },
@@ -177,7 +177,7 @@ dojo.declare("js.config", null, {
     OperationalLayers: [{
         Name: "Building Interior Spaces Type",
         Key: "BuildingInteriorSpacesType",
-        MapURL: "http://203.199.47.146/arcgis/rest/services/CampusPlaceFinder/BuildingInterior_norelation/MapServer/1",
+        MapURL: "http://ec2-54-214-140-9.us-west-2.compute.amazonaws.com:6080/arcgis/rest/services/BuildingInterior/MapServer/1",
         Building: "${BUILDING}",
         Floor: "${FLOOR}",
         ObjectID: "${OBJECTID}",
@@ -194,7 +194,7 @@ dojo.declare("js.config", null, {
     }, {
         Name: "Building Floorplan Lines",
         Key: "BuildingFloorplanLines",
-        MapURL: "http://203.199.47.146/arcgis/rest/services/CampusPlaceFinder/BuildingInterior_norelation/MapServer/0",
+        MapURL: "http://ec2-54-214-140-9.us-west-2.compute.amazonaws.com:6080/arcgis/rest/services/BuildingInterior/MapServer/0",
         isLayerVisible: true,
         WhereQuery: "BUILDINGKEY = '${0}' AND FLOOR = '${1}'"
     }],
@@ -204,7 +204,7 @@ dojo.declare("js.config", null, {
     // ------------------------------------------------------------------------------------------------------------------------
     PlaceLayer: {
         Key: "PlaceLayer",
-        QueryURL: "http://203.199.47.146/arcgis/rest/services/CampusPlaceFinder/BuildingInterior_norelation/MapServer/1",
+        QueryURL: "http://ec2-54-214-140-9.us-west-2.compute.amazonaws.com:6080/arcgis/rest/services/BuildingInterior/MapServer/1",
         OutFields: "*",
         QueryFields: "BUILDING,FLOOR,SPACEID",
         SpaceType: "${SPACETYPE}",
@@ -253,7 +253,7 @@ dojo.declare("js.config", null, {
     // ------------------------------------------------------------------------------------------------------------------------
     PersonLayer: {
         Key: "PersonLayer",
-        QueryURL: "http://203.199.47.146/arcgis/rest/services/CampusPlaceFinder/BuildingInterior_norelation/MapServer/4",
+        QueryURL: "http://ec2-54-214-140-9.us-west-2.compute.amazonaws.com:6080/arcgis/rest/services/BuildingInterior/MapServer/4",
         OutFields: "OBJECTID,FIRSTNAME,LASTNAME,EMAIL,EXTENSION,BUILDING,FLOOR,WING",
         QueryFields: "FIRSTNAME,LASTNAME",
         //Please note that value for SPACEID is fetched from "PlaceLayer"
