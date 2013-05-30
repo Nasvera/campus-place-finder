@@ -300,16 +300,16 @@ dojo.declare("js.config", null, {
 
     },
     //Set default building selected when map is loaded
-    DefaultBuilding: 'M',
+    DefaultBuilding: 'MC',
 
     //Set default floor selected within the selected building
     DefaultFloor: '1',
 
     //Set default watermark text displayed in search box for person search
-    PersonText: "Enter first name or last name or both",
+    PersonText: "Enter first,last, or full name",
 
     //Set default watermark text displayed in search box for place search
-    PlaceText: "Enter name of place e.g. MA",
+    PlaceText: "Enter name of place e.g. MC",
 
     //Set string value to be displayed for null or blank values
     ShowNullValueAs: "N/A",
@@ -331,7 +331,7 @@ dojo.declare("js.config", null, {
     //Set floor switcher
     FloorSwitcher: {
         IsExpressVisible: true,
-        IsAccordionVisible: false
+        IsAccordionVisible: true
     },
 
     // Define the database field names
