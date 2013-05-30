@@ -360,8 +360,8 @@ dojo.declare("js.config", null, {
 
     //Define building and floor input fields for getting the exact location on map click
     BuildingFloorFields: {
-        BuildingFieldName: "building",
-        FloorFieldName: "floor",
+        BuildingFieldName: "BUILDING",
+        FloorFieldName: "FLOOR",
         SpaceTypeFieldName: "SPACETYPE",
         SpaceIdFieldName: "SPACEID",
         SectionFieldName: "SECTION"
@@ -369,9 +369,9 @@ dojo.declare("js.config", null, {
 
     //Set info-pop fields for adding and displaying comment for existing service request
     CommentsInfoPopupFieldsCollection: {
-        Rank: "${rank}",
-        SubmitDate: "${submitdt}",
-        Comments: "${comments}"
+        Rank: "${RANK}",
+        SubmitDate: "${SUBMITDT}",
+        Comments: "${COMMENTS}"
     },
 
     // ------------------------------------------------------------------------------------------------------------------------
