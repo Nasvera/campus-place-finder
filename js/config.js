@@ -67,7 +67,7 @@ dojo.declare("js.config", null, {
     DefaultExtent: "-9813487,5126513,-9812723,5126950",
 
     // Geometry service URL
-    GeometryService: "http://localgovtemplates2.esri.com/ArcGIS/rest/services/Geometry/GeometryServer",
+    GeometryService: "http://arcgis-tenone2012-1974758903.us-west-1.elb.amazonaws.com/arcgis/rest/services/Utilities/Geometry/GeometryServer",
 
     // URL for querying total buildings and floors
     QueryTaskURL: {
