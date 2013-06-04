@@ -115,6 +115,7 @@ function HideMapLayers() {
 
 //Animate basemap container
 function ShowBaseMaps() {
+    // Hide other commands
     if (dojo.coords("divAppContainer").h > 0) {
         dojo.replaceClass("divAppContainer", "hideContainerHeight", "showContainerHeight");
         dojo.byId('divAppContainer').style.height = '0px';
@@ -123,13 +124,11 @@ function ShowBaseMaps() {
         dojo.replaceClass("divAddressContent", "hideContainerHeight", "showContainerHeight");
         dojo.byId('divAddressContent').style.height = '0px';
     }
-    if (dojo.coords("divExpress").h > 0 || dojo.coords("divAccordion").h > 0) {
-        accHeight = dojo.coords("divAccordion").h;
-        dojo.replaceClass("divExpress", "hideContainerHeight", "showContainerHeight");
-        dojo.byId('divExpress').style.height = '0px';
-        dojo.replaceClass("divAccordion", "hideContainerHeight", "showContainerHeight");
-        dojo.byId('divAccordion').style.height = '0px';
-    }
+    // Switch to hidden class if visible now
+    dojo.replaceClass("divExpress", "hideContainerHeight", "showContainerHeight");
+    dojo.replaceClass("divAccordion", "hideContainerHeight", "showContainerHeight");
+
+    // Toggle basemap
     var cellHeight = 115;
     if (dojo.coords("divLayerContainer").h > 0) {
         dojo.replaceClass("divLayerContainer", "hideContainerHeight", "showContainerHeight");

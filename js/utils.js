@@ -14,7 +14,6 @@
  | See the License for the specific language governing permissions and
  | limitations under the License.
  */
-var accHeight;
 
 //clear Graphics layer
 function ClearGraphics() {
@@ -152,44 +151,19 @@ function HideInfoWindow() {
 }
 
 //display container with wipe-in animation
-function WipeInControl(node, height, duration) {
+function WipeInControl(node, duration) {
     var animation = dojo.fx.wipeIn({
         node: node,
-        height: height,
         duration: duration
     }).play();
-    if (accHeight) {
-        accHeight = accHeight + height;
-        dojo.byId('divAccordion').style.height = accHeight + "px";
-    }
 }
 
 //hide container with wipe-out animation
-function WipeOutControl(node, height, duration) {
+function WipeOutControl(node, duration) {
     dojo.fx.wipeOut({
         node: node,
         duration: duration
     }).play();
-    setTimeout(function () {
-        if (height) {
-            accHeight = accHeight - height;
-            dojo.byId('divAccordion').style.height = accHeight + "px";
-        }
-        else {
-            if (dojo.coords("divExpress").h > 0) {
-                dojo.byId('divAccordion').style.height = "auto";
-                setTimeout(function () {
-                    accHeight = dojo.coords('divAccordion').h;
-                }, 500);
-            }
-            else {
-                if (dojo.coords("divAccordion").h > 0) {
-                    accHeight = dojo.coords("divAccordion").h - 53;
-                    dojo.byId('divAccordion').style.height = 0 + "px";
-                }
-            }
-        }
-    }, duration);
 }
 
 //remove container div
@@ -426,6 +400,7 @@ function CheckCommentMailFormat(emailValue) {
 
 //show locator container and close other containers in header
 function ShowLocateContainer() {
+    // Hide other commands
     RemoveChildren(dojo.byId('tblAddressResults'));
     dojo.byId('txtAddress').blur();
     if (dojo.coords("divAppContainer").h > 0) {
@@ -437,13 +412,11 @@ function ShowLocateContainer() {
         dojo.byId('divLayerContainer').style.height = '0px';
         dojo.byId('txtAddress').blur();
     }
-    if (dojo.coords("divExpress").h > 0 || dojo.coords("divAccordion").h > 0) {
-        accHeight = dojo.coords("divAccordion").h;
-        dojo.replaceClass("divExpress", "hideContainerHeight", "showContainerHeight");
-        dojo.byId('divExpress').style.height = '0px';
-        dojo.replaceClass("divAccordion", "hideContainerHeight", "showContainerHeight");
-        dojo.byId('divAccordion').style.height = '0px';
-    }
+    // Switch to hidden class if visible now
+    dojo.replaceClass("divExpress", "hideContainerHeight", "showContainerHeight");
+    dojo.replaceClass("divAccordion", "hideContainerHeight", "showContainerHeight");
+
+    // Toggle address
     if (dojo.coords("divAddressContent").h > 0) {
         dojo.replaceClass("divAddressContent", "hideContainerHeight", "showContainerHeight");
         dojo.byId('divAddressContent').style.height = '0px';
@@ -472,7 +445,7 @@ function ShowLocateContainer() {
 
 //show accordion and hide other containers in header panel
 function ShowAccordion() {
-    ShowLoadingMessage();
+    // Hide other commands
     if (dojo.coords("divAppContainer").h > 0) {
         dojo.replaceClass("divAppContainer", "hideContainerHeight", "showContainerHeight");
         dojo.byId('divAppContainer').style.height = '0px';
@@ -486,24 +459,23 @@ function ShowAccordion() {
         dojo.replaceClass("divAddressContent", "hideContainerHeight", "showContainerHeight");
         dojo.byId('divAddressContent').style.height = '0px';
     }
-    if (dojo.coords("divExpress").h > 0 || dojo.coords("divAccordion").h > 0) {
-        accHeight = dojo.coords("divAccordion").h;
+
+    // Toggle express
+    if(dojo.hasClass("divExpress", "showContainerHeight")) {
+        // Visible now, so switch to hidden class
         dojo.replaceClass("divExpress", "hideContainerHeight", "showContainerHeight");
-        dojo.byId('divExpress').style.height = '0px';
-        dojo.replaceClass("divAccordion", "hideContainerHeight", "showContainerHeight");
-        dojo.byId('divAccordion').style.height = '0px';
-        setTimeout(function () {
-            HideLoadingMessage();
-        }, 500);
-    }
-    else {
+    } else if(dojo.hasClass("divExpress", "hideContainerHeight")) {
+        // Hidden now, so switch to visible class
         dojo.replaceClass("divExpress", "showContainerHeight", "hideContainerHeight");
+    }
+
+    // Toggle accordion
+    if(dojo.hasClass("divAccordion", "showContainerHeight")) {
+        // Visible now, so switch to hidden class
+        dojo.replaceClass("divAccordion", "hideContainerHeight", "showContainerHeight");
+    } else if(dojo.hasClass("divAccordion", "hideContainerHeight")) {
+        // Hidden now, so switch to visible class
         dojo.replaceClass("divAccordion", "showContainerHeight", "hideContainerHeight");
-        dojo.byId('divExpress').style.height = '80px';
-        dojo.byId('divAccordion').style.height = accHeight + "px";
-        setTimeout(function () {
-            HideLoadingMessage();
-        }, 500);
     }
 }
 
@@ -532,10 +504,12 @@ function ShareLink(ext) {
     }
     url = dojo.string.substitute(mapSharingOptions.TinyURLServiceURL, [urlStr]);
 
+    ShowLoadingMessage();
     dojo.io.script.get({
         url: url,
         callbackParamName: "callback",
         load: function (data) {
+            HideLoadingMessage();
             tinyResponse = data;
             tinyUrl = data;
             var attr = mapSharingOptions.TinyURLResponseAttribute.split(".");
@@ -543,6 +517,7 @@ function ShareLink(ext) {
                 tinyUrl = tinyUrl[attr[x]];
             }
             if (ext) {
+                // Hide other commands
                 if (dojo.coords("divLayerContainer").h > 0) {
                     dojo.replaceClass("divLayerContainer", "hideContainerHeight", "showContainerHeight");
                     dojo.byId('divLayerContainer').style.height = '0px';
@@ -551,13 +526,11 @@ function ShareLink(ext) {
                     dojo.replaceClass("divAddressContent", "hideContainerHeight", "showContainerHeight");
                     dojo.byId('divAddressContent').style.height = '0px';
                 }
-                if (dojo.coords("divExpress").h > 0 || dojo.coords("divAccordion").h > 0) {
-                    accHeight = dojo.coords("divAccordion").h;
-                    dojo.replaceClass("divExpress", "hideContainerHeight", "showContainerHeight");
-                    dojo.byId('divExpress').style.height = '0px';
-                    dojo.replaceClass("divAccordion", "hideContainerHeight", "showContainerHeight");
-                    dojo.byId('divAccordion').style.height = '0px';
-                }
+                // Switch to hidden class if visible now
+                dojo.replaceClass("divExpress", "hideContainerHeight", "showContainerHeight");
+                dojo.replaceClass("divAccordion", "hideContainerHeight", "showContainerHeight");
+
+                // Toggle share
                 var cellHeight = 60;
                 if (dojo.coords("divAppContainer").h > 0) {
                     dojo.replaceClass("divAppContainer", "hideContainerHeight", "showContainerHeight");
@@ -570,11 +543,13 @@ function ShareLink(ext) {
             }
         },
         error: function (error) {
+            HideLoadingMessage();
             alert(tinyResponse.error);
             SelectedId = null;
         }
     });
     setTimeout(function () {
+        HideLoadingMessage();
         if (!tinyResponse) {
             SelectedId = null;
             alert(messages.getElementsByTagName("tinyURLEngine")[0].childNodes[0].nodeValue);
@@ -690,7 +665,6 @@ function GetQuerystring(key) {
 
 //Hide splash screen container
 function HideSplashScreenMessage() {
-    accHeight = dojo.coords('divAccordion').h;
     if (dojo.isIE < 9) {
         dojo.byId("divSplashScreenContent").style.display = "none";
     }

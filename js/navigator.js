@@ -17,31 +17,18 @@
 //display accordion and express based on config file data
 function LiftHandler() {
     if (floorSwitcher.IsExpressVisible || floorSwitcher.IsAccordionVisible) {
-        if (floorSwitcher.IsExpressVisible && floorSwitcher.IsAccordionVisible) {
-            dojo.byId('divExpress').style.display = 'block';
-            dojo.byId('divAccordion').style.display = 'block';
-            dojo.byId('divExpress').style.height = '80px';
-        }
-        else if (floorSwitcher.IsExpressVisible) {
-            dojo.byId('divExpress').style.display = 'block';
-            dojo.byId('divAccordion').style.display = 'none';
+        if (floorSwitcher.IsExpressVisible) {
             dojo.replaceClass("divExpress", "showContainerHeight", "hideContainerHeight");
-            dojo.replaceClass("divAccordion", "hideContainerHeight", "showContainerHeight");
+            dojo.byId('divExpress').style.display = 'block';
         }
-        else {
-            dojo.byId('divAccordion').style.display = 'block';
-            dojo.byId('divExpress').style.display = 'none';
+        if (floorSwitcher.IsAccordionVisible) {
             dojo.replaceClass("divAccordion", "showContainerHeight", "hideContainerHeight");
-            dojo.replaceClass("divExpress", "hideContainerHeight", "showContainerHeight");
+            dojo.byId('divAccordion').style.display = 'block';
         }
-    }
-    else {
+    } else {
         SelectFeatures(defaultBuilding, 1);
         dojo.byId('tdFloorNavigator').style.display = 'none';
-        dojo.byId('divExpress').style.display = 'none';
-        dojo.byId('divAccordion').style.display = 'none';
     }
-    accHeight = dojo.coords('divAccordion').h;
 }
 
 var currentIndex = 0;
@@ -296,13 +283,7 @@ function CreateFloorSwitcher(buildingArray, building, selectedFloor, accordion) 
         else {
             img.src = 'images/font-plus.png';
             img.className = "disabledText";
-            if (accordion) {
-                WipeOutControl(floorDiv, null, 1000);
-            }
-            else {
-
-                WipeOutControl(floorDiv, null, 1000);
-            }
+            WipeOutControl(floorDiv, 1);
         }
 
         var floorTable = document.createElement('table');
@@ -402,11 +383,11 @@ function ShowHideLevel(evt) {
     var divNode = dojo.byId('floorDiv-' + level);
 
     if (dojo.coords(divNode).h > 0) {
-        WipeOutControl(divNode, 53, 500);
+        WipeOutControl(divNode,500);
         evt.src = 'images/font-plus.png';
     }
     else {
-        WipeInControl(divNode, 53, 500);
+        WipeInControl(divNode, 500);
         evt.src = 'images/font-minus.png';
     }
 }

@@ -263,7 +263,7 @@ function Init() {
     CreateBaseMapComponent();
     geometryService = new esri.tasks.GeometryService(responseObject.GeometryService);
     if (floorSwitcher.IsExpressVisible) {
-        dojo.byId('divAccordion').style.top = '165px';
+        dojo.byId('divAccordion').style.top = '175px';
     }
     else {
         dojo.byId('divAccordion').style.top = '80px';
