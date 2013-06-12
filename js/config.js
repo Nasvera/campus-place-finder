@@ -384,6 +384,6 @@ dojo.declare("js.config", null, {
         TinyURLResponseAttribute: "data.url",
         FacebookShareURL: "http://www.facebook.com/sharer.php?u=${0}&t=Campus%20Building%20Viewer",
         TwitterShareURL: "http://twitter.com/home/?status=Campus%20Building%20Viewer ${0}",
-        ShareByMailLink: "mailto:%20?subject=Checkout%20this%20map!&body=${0}"
+        ShareByMailLink: "mailto:%20?subject=Check%20out%20this%20map!&body=${0}"
     }
 });
