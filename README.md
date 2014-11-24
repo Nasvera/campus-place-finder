@@ -80,5 +80,5 @@ limitations under the License.
 A copy of the license is available in the repository's
 [LICENSE.txt](LICENSE.txt) file.
 
-[](Esri Tags: Local-Government Local Government Campus Place Finder)
+[](Esri Tags: ArcGISSolutions Local-Government Local Government Campus Place Finder)
 [](Esri Language: JavaScript)
