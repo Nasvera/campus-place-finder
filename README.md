@@ -1,5 +1,7 @@
 # campus-place-finder
 
+***This Campus Place Finder repo has been replaced by the [Campus Place Locator repo](https://github.com/Esri/campus-place-locator), applications built from the campus place finder repo are in mature support***
+
 Campus Place Finder is a configuration of ArcGIS and a JavaScript application that allows employees and visitors to locate people and places on a campus or in a single building. This application is typically used by employees or university students to locate an office or conference room in a building, but can also be used by visitors to locate an individual employee they are visiting.
 
 [Try the Campus Place Finder application](http://links.esri.com/localgovernment/tryit/CampusPlaceFinder/)
