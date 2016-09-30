@@ -72,7 +72,7 @@ dojo.declare("js.config", null, {
 
     // URL for querying total buildings and floors
     QueryTaskURL: {
-        QueryURL: "http://tryitlive.arcgis.com/arcgis/rest/services/BuildingInterior/MapServer/0",
+        QueryURL: "http://yourserver/arcgis/rest/services/BuildingInterior/MapServer/0",
         BuildingKey: "${BUILDINGKEY}",
         Floor: "${FLOOR}"
     },
@@ -92,7 +92,7 @@ dojo.declare("js.config", null, {
             MapURL: "http://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer"
         }, {
             LayerId: "campusMap",
-            MapURL: "http://tryitlive.arcgis.com/arcgis/rest/services/Campus/MapServer"
+            MapURL: "http://yourserver/arcgis/rest/services/Campus/MapServer"
         }]
     }, {
         Key: "worldImageryMap",
@@ -100,7 +100,7 @@ dojo.declare("js.config", null, {
         Name: "Imagery",
         MapURL: [{
             LayerId: "worldImageryMap",
-            MapURL: "http://tryitlive.arcgis.com/arcgis/rest/services/ImageryHybrid/MapServer"
+            MapURL: "http://yourserver/arcgis/rest/services/ImageryHybrid/MapServer"
         }]
     }],
 
@@ -113,7 +113,7 @@ dojo.declare("js.config", null, {
         isEnabled: true,
         LayerInfo: {
             Key: "srFloor0",
-            ServiceURL: "http://services.arcgis.com/b6gLrKHqgkQb393u/arcgis/rest/services/ServiceRequestFloors/FeatureServer/0",
+            ServiceURL: "http://yourserver/arcgis/rest/services/ServiceRequestFloors/FeatureServer/0",
             WhereQuery: "FLOOR = '${0}' AND STATUS = 'Unassigned' AND (BUILDING = '${1}' or BUILDING = 'outside')",
             OutFields: "*",
             RequestId: "${REQUESTID}",
@@ -122,11 +122,11 @@ dojo.declare("js.config", null, {
             Building: "${BUILDING}",
             Floor: "${FLOOR}",
             RequestTypeFieldName: "REQUESTTYPE",
-            CommentsLayerURL: "http://services.arcgis.com/b6gLrKHqgkQb393u/arcgis/rest/services/ServiceRequestFloors/FeatureServer/4",
+            CommentsLayerURL: "http://yourserver/arcgis/rest/services/ServiceRequestFloors/FeatureServer/4",
             CommentsOutFields: "*",
             //Set the primary key attribute for the comments
             CommentId: "${REQUESTID}",
-            BuildingFloorPlan: "http://tryitlive.arcgis.com/arcgis/rest/services/BuildingInterior/MapServer/2",
+            BuildingFloorPlan: "http://yourserver/arcgis/rest/services/BuildingInterior/MapServer/2",
             BuildingAttribute: "BUILDINGKEY",
             BuildingKey: "${BUILDINGKEY}"
         },
@@ -178,7 +178,7 @@ dojo.declare("js.config", null, {
     OperationalLayers: [{
         Name: "Building Interior Spaces Type",
         Key: "BuildingInteriorSpacesType",
-        MapURL: "http://tryitlive.arcgis.com/arcgis/rest/services/BuildingInterior/MapServer/1",
+        MapURL: "http://yourserver/arcgis/rest/services/BuildingInterior/MapServer/1",
         Building: "${BUILDING}",
         Floor: "${FLOOR}",
         ObjectID: "${OBJECTID}",
@@ -195,7 +195,7 @@ dojo.declare("js.config", null, {
     }, {
         Name: "Building Floorplan Lines",
         Key: "BuildingFloorplanLines",
-        MapURL: "http://tryitlive.arcgis.com/arcgis/rest/services/BuildingInterior/MapServer/0",
+        MapURL: "http://yourserver/arcgis/rest/services/BuildingInterior/MapServer/0",
         isLayerVisible: true,
         WhereQuery: "BUILDINGKEY = '${0}' AND FLOOR = '${1}'"
     }],
@@ -205,7 +205,7 @@ dojo.declare("js.config", null, {
     // ------------------------------------------------------------------------------------------------------------------------
     PlaceLayer: {
         Key: "PlaceLayer",
-        QueryURL: "http://tryitlive.arcgis.com/arcgis/rest/services/BuildingInterior/MapServer/1",
+        QueryURL: "http://yourserver/arcgis/rest/services/BuildingInterior/MapServer/1",
         OutFields: "*",
         QueryFields: "BUILDING,FLOOR,SPACEID",
         SpaceType: "${SPACETYPE}",
@@ -254,7 +254,7 @@ dojo.declare("js.config", null, {
     // ------------------------------------------------------------------------------------------------------------------------
     PersonLayer: {
         Key: "PersonLayer",
-        QueryURL: "http://tryitlive.arcgis.com/arcgis/rest/services/BuildingInterior/MapServer/4",
+        QueryURL: "http://yourserver/arcgis/rest/services/BuildingInterior/MapServer/4",
         OutFields: "OBJECTID,FIRSTNAME,LASTNAME,EMAIL,EXTENSION,BUILDING,FLOOR,WING",
         QueryFields: "FIRSTNAME,LASTNAME",
         //Please note that value for SPACEID is fetched from "PlaceLayer"
