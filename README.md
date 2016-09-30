@@ -4,9 +4,7 @@
 
 Campus Place Finder is a configuration of ArcGIS and a JavaScript application that allows employees and visitors to locate people and places on a campus or in a single building. This application is typically used by employees or university students to locate an office or conference room in a building, but can also be used by visitors to locate an individual employee they are visiting.
 
-[Try the Campus Place Finder application](http://links.esri.com/localgovernment/tryit/CampusPlaceFinder/)
-
-[![Image of Campus Place Finder application](campus-place-finder.png "Campus Place Finder application")](http://links.esri.com/localgovernment/tryit/CampusPlaceFinder/)
+[![Image of Campus Place Finder application](campus-place-finder.png "Campus Place Finder application")]
 
 ## Features
 
@@ -16,18 +14,15 @@ Campus Place Finder is a configuration of ArcGIS and a JavaScript application th
 
 ## Requirements
 
-**Start now using Esri-supplied sample services**
+**Start now using your own services then updating the configuration files**
 
-You can start using the application now by setting it up on a web server running Microsoft Internet Information Services (IIS) and using sample services supplied by Esri.
+-For more information on requirements and publication steps, and app configuration  see [Campus Place Finder](http://links.esri.com/localgovernment/help/10.2/CampusPlaceFinder) help.
+
+-Once you have completed these steps, you can start using the application now by setting it up on a web server running Microsoft Internet Information Services (IIS) and using sample services supplied by Esri.
 You'll need to convert to an application in IIS and use the ASP .NET 4.0. application pool.
 
-**Start now using your own services**
-
-For more information on requirements and publication steps, see [Campus Place Finder](http://links.esri.com/localgovernment/help/10.2/CampusPlaceFinder) help.
 
 ## Resources
-
-Additional [information and sample data](http://www.arcgis.com/home/item.html?id=b947b814603c45babaea78a9ba66c88d) are available for the application.
 
 Learn more about Esri's [ArcGIS for Local Government maps and apps](http://solutions.arcgis.com/local-government/).
 
